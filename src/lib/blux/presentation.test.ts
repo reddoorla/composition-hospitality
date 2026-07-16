@@ -5,6 +5,7 @@ import {
   GRID_GUTTER,
   loadPresentation,
   rowCellBases,
+  selectPresentation,
 } from "./presentation";
 import type { Presentation, RenderCell } from "./presentation";
 
@@ -15,11 +16,36 @@ const cell = (token: RenderCell["token"]): RenderCell => ({
 });
 
 describe("presentation", () => {
-  it("loadPresentation returns the checked-in manifest (empty until `blux convert`)", () => {
-    const p = loadPresentation();
-    // The starter ships the empty stub; a converted site's emit output has one
-    // entry per band, keyed by string index.
-    expect(p.bands).toEqual({});
+  it("loadPresentation returns the checked-in converted multi-page manifest", () => {
+    // The real convert output: 8 pages, band manifests namespaced per uid.
+    expect(Object.keys(loadPresentation().bands).length).toBe(5); // home
+    expect(Object.keys(loadPresentation("about").bands).length).toBe(8);
+    expect(Object.keys(loadPresentation("gallery").bands).length).toBe(3);
+    expect(loadPresentation("ghost").bands).toEqual({});
+  });
+
+  it("selectPresentation namespaces by page uid on a multi-page manifest", () => {
+    // Band indices are page-local (page-block-N restarts at 0 per page), so a
+    // multi-page manifest keys per uid; unknown uids degrade to empty.
+    const multi = {
+      pages: {
+        home: { bands: { "0": { style: { "text-align": "center" } } } },
+        about: { bands: { "0": { style: { "text-align": "left" } } } },
+      },
+    };
+    expect(
+      selectPresentation(multi, "home").bands["0"]?.style?.["text-align"],
+    ).toBe("center");
+    expect(
+      selectPresentation(multi, "about").bands["0"]?.style?.["text-align"],
+    ).toBe("left");
+    expect(selectPresentation(multi).bands["0"]?.style?.["text-align"]).toBe(
+      "center",
+    );
+    expect(selectPresentation(multi, "ghost").bands).toEqual({});
+    // The flat form passes through regardless of uid.
+    const flat = { bands: { "3": { style: { "background-color": "#eef" } } } };
+    expect(selectPresentation(flat, "anything").bands["3"]).toBeDefined();
   });
 
   it("bandFor looks up by band index and returns null when absent", () => {

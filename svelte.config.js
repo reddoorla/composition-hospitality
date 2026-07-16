@@ -64,15 +64,33 @@ const config = {
           "https://player.vimeo.com",
           // Cloudflare Turnstile contact-form widget (enable via PUBLIC_TURNSTILE_SITE_KEY).
           "https://challenges.cloudflare.com",
+          // Adobe Fonts (Typekit) kit loader — Brandon Grotesque (app.html).
+          "https://use.typekit.net",
         ],
-        "style-src": ["self", "unsafe-inline"],
+        "style-src": [
+          "self",
+          "unsafe-inline",
+          // Typekit injects its @font-face stylesheet.
+          "https://use.typekit.net",
+        ],
         "img-src": [
           "self",
           "data:",
           "https://images.prismic.io",
           "https://*.prismic.io",
+          // Blux export CDN — the converted manifest points here until the
+          // operator's `blux migrate` re-hosts assets on Prismic.
+          "https://*.cloudfront.net",
+          // Typekit's tracking beacon rides an img request.
+          "https://p.typekit.net",
         ],
-        "media-src": ["self", "https://*.vimeocdn.com"],
+        "media-src": [
+          "self",
+          "https://*.vimeocdn.com",
+          // Prismic-hosted video after `blux migrate`; Blux CDN until then.
+          "https://*.prismic.io",
+          "https://*.cloudfront.net",
+        ],
         "frame-src": [
           "self",
           "https://player.vimeo.com",
@@ -84,7 +102,12 @@ const config = {
           "https://*.prismic.io",
           "https://static.cdn.prismic.io",
         ],
-        "font-src": ["self", "data:"],
+        "font-src": [
+          "self",
+          "data:",
+          // Typekit serves the woff2 files from use.typekit.net.
+          "https://use.typekit.net",
+        ],
         "base-uri": ["self"],
         "form-action": ["self"],
         "frame-ancestors": ["self"],

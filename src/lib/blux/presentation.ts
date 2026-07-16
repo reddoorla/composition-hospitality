@@ -156,8 +156,29 @@ export type BandPresentation = {
 
 export type Presentation = { bands: Record<string, BandPresentation> };
 
-export function loadPresentation(): Presentation {
-  return manifest as Presentation;
+/** A multi-page manifest: per-page band manifests keyed by page uid. Band
+ * indices are page-local in a Blux export (page-block-N restarts at 0 on
+ * every page), so pages can't share one flat bands map. Single-page sites
+ * keep shipping the flat form. */
+export type SitePresentation =
+  | Presentation
+  | { pages: Record<string, Presentation> };
+
+/** One page's slice of a manifest: `uid` selects from a multi-page manifest;
+ * a flat single-page manifest ignores it (both existing converted sites and
+ * the starter stub are flat). An unknown uid yields an empty presentation —
+ * slices then render on their own defaults, same as an unwired context. */
+export function selectPresentation(
+  m: SitePresentation,
+  uid = "home",
+): Presentation {
+  if ("pages" in m && m.pages) return m.pages[uid] ?? { bands: {} };
+  return m as Presentation;
+}
+
+/** The checked-in presentation manifest for one page. */
+export function loadPresentation(uid = "home"): Presentation {
+  return selectPresentation(manifest as SitePresentation, uid);
 }
 
 /** The presentation entry for a band index, or null. Tolerates an absent
