@@ -161,8 +161,12 @@
           class="absolute inset-0 h-full w-full object-cover"
         />
       {/if}
+      <!-- Hover-reveals on pointer devices (faithful to the source's
+           layout:behind). But hover never fires on touch (the dominant traffic
+           for these pages), so on hover-less devices the caption stays visible
+           instead of being permanently hidden; focus-within covers keyboard. -->
       <div
-        class="absolute inset-0 flex flex-col gap-1 p-2.5 opacity-0 transition-opacity duration-300 group-hover:opacity-100 {node
+        class="absolute inset-0 flex flex-col gap-1 p-2.5 opacity-0 transition-opacity duration-300 group-hover:opacity-100 focus-within:opacity-100 [@media(hover:none)]:opacity-100 {node
           .style['_overlayValign'] === 'top'
           ? 'justify-start'
           : 'justify-center'}"
