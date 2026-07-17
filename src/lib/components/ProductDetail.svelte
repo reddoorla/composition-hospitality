@@ -65,8 +65,14 @@
 <article
   class="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-12 md:flex-row md:items-start md:gap-12"
 >
-  <!-- Image first on mobile; the 30% info column on the left at md+. -->
-  <div class="order-2 flex flex-col gap-6 md:order-1 md:w-[30%]">
+  <!-- Image first on mobile; the 30% info column on the left at md+ — but
+       full width when the product has no image, so it isn't crammed into 30%
+       with dead space. -->
+  <div
+    class="order-2 flex flex-col gap-6 md:order-1 {active
+      ? 'md:w-[30%]'
+      : 'md:w-full'}"
+  >
     <div>
       <h1 class="text-accent text-3xl leading-tight font-light">
         {product.title}
