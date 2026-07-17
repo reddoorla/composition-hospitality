@@ -1,9 +1,64 @@
 {
   "home": [
     {
-      "slice_type": "grid_band",
+      "slice_type": "carousel",
       "variation": "default",
-      "items": [],
+      "items": [
+        {
+          "caption": "Headquarters"
+        },
+        {
+          "caption": "MAR MONTE HOTEL BY HYATT - SANTA BARBARA, CA"
+        },
+        {
+          "caption": "2009 8th STREET - WASHINGTON D.C."
+        },
+        {
+          "caption": "RESIDENCE INN - GLENDALE, CA"
+        },
+        {
+          "caption": "THE LAUREL - PHILADELPHIA, PA"
+        },
+        {
+          "caption": "THE LAUREL - PHILADELPHIA, PA"
+        },
+        {
+          "caption": "THE READ HOUSE - CHATTANOOGA, TN"
+        },
+        {
+          "caption": "BALDWIN HARBOR - ORLANDO, FL"
+        },
+        {
+          "caption": "WATERMARK - BATON ROUGE, LA"
+        },
+        {
+          "caption": "SHERATON DOWNTOWN - LOS ANGELES, CA"
+        },
+        {
+          "caption": "WATERMARK - BATON ROUGE, LA"
+        },
+        {
+          "caption": "NEUEHOUSE-LOS ANGELES, CA"
+        },
+        {
+          "caption": "BIG HORN - PALM DESERT, CA"
+        },
+        {
+          "caption": "HOTEL NIA - MENLO PARK, CA"
+        },
+        {
+          "caption": "MONTROSE - WEST HOLLYWOOD, CA"
+        },
+        {
+          "caption": "SAN FRANCISCO PROPER HOTEL - SAN FRANCISCO, CA"
+        },
+        {
+          "caption": "W CHICAGO- CITY CENTER - CHICAGO, IL"
+        },
+        {
+          "caption": "MARRIOTT LANCASTER - LANCASTER, PA"
+        }
+      ],
       "primary": {
         "band": 0
       }
@@ -204,9 +259,58 @@
   ],
   "composition-hospitality-copy": [
     {
-      "slice_type": "grid_band",
+      "slice_type": "carousel",
       "variation": "default",
-      "items": [],
+      "items": [
+        {
+          "caption": "BDWEST 2019 - LOS ANGELES, CA"
+        },
+        {
+          "caption": "THE READ HOUSE - CHATTANOOGA, TN"
+        },
+        {
+          "caption": "BALDWIN HARBOR - ORLANDO, FL"
+        },
+        {
+          "caption": "WATERMARK - BATON ROUGE, LA"
+        },
+        {
+          "caption": "BDWEST 2019 - LOS ANGELES, CA"
+        },
+        {
+          "caption": "SHERATON DOWNTOWN - LOS ANGELES, CA"
+        },
+        {
+          "caption": "WATERMARK - BATON ROUGE, LA"
+        },
+        {
+          "caption": "NEUEHOUSE-LOS ANGELES, CA"
+        },
+        {
+          "caption": "BDWEST 2019 - LOS ANGELES, CA"
+        },
+        {
+          "caption": "BALDWIN HARBOR - ORLANDO, FL"
+        },
+        {
+          "caption": "BIG HORN - PALM DESERT, CA"
+        },
+        {
+          "caption": "HOTEL NIA - MENLO PARK, CA"
+        },
+        {
+          "caption": "BDWEST 2019 - LOS ANGELES, CA"
+        },
+        {
+          "caption": "MONTROSE - WEST HOLLYWOOD, CA"
+        },
+        {
+          "caption": "SAN FRANCISCO PROPER HOTEL - SAN FRANCISCO, CA"
+        },
+        {
+          "caption": "W CHICAGO- CITY CENTER - CHICAGO, IL"
+        }
+      ],
       "primary": {
         "band": 0
       }
