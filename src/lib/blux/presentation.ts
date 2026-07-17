@@ -26,6 +26,10 @@ export type RenderMedia = {
   /** The source holder's inline min-height (e.g. "80vh" on slider slides), so
    * a cover-frame carousel reserves the original's height. */
   minHeight?: string;
+  /** A feed grid's tile crop ratio ("W:H", e.g. "4:3") — the render frames the
+   * image in a fixed-aspect object-cover box so gallery/portfolio tiles are
+   * uniformly cropped like the original instead of flowing at natural height. */
+  cropRatio?: string;
   /** A `<video>`'s source playback attributes; present-only. Absent = an ambient
    * background loop; `controls` = user-initiated inline playback. */
   playback?: {
