@@ -12,18 +12,21 @@
   // page's back-link points at `/products/<category>#<sub_category>`, and this
   // is where that anchor lands. Groups preserve first-seen order; "" (no
   // sub-category) collects into a trailing unlabelled group.
+  // Plain-array grouping (few sub-categories): a Map/Set here trips
+  // svelte/prefer-svelte-reactivity, and this is a transient derived value, not
+  // reactive state.
   const groups = $derived.by(() => {
-    const map = new Map<string, Product[]>();
+    const result: { subCategory: string; items: Product[] }[] = [];
     for (const p of products) {
       const key = p.subCategory ?? "";
-      const list = map.get(key);
-      if (list) list.push(p);
-      else map.set(key, [p]);
+      let group = result.find((g) => g.subCategory === key);
+      if (!group) {
+        group = { subCategory: key, items: [] };
+        result.push(group);
+      }
+      group.items.push(p);
     }
-    return [...map.entries()].map(([subCategory, items]) => ({
-      subCategory,
-      items,
-    }));
+    return result;
   });
 </script>
 
