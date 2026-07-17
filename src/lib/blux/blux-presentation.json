@@ -12,571 +12,244 @@
             "background-color": "#ededed",
             "_contentPadding": "0"
           },
-          "tree": {
-            "kind": "row",
-            "cells": [
+          "carousel": {
+            "slides": [
               {
-                "token": {
-                  "cols": 1
+                "media": {
+                  "kind": "image",
+                  "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/3cdb9faa-32fa-4e08-b6c9-3b79f42aee75.jpg",
+                  "alt": "Ontario_bldg_CH.jpg",
+                  "fit": "cover",
+                  "minHeight": "80vh"
                 },
-                "node": {
-                  "kind": "stack",
-                  "children": [
-                    {
-                      "kind": "media",
-                      "media": {
-                        "kind": "image",
-                        "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/3cdb9faa-32fa-4e08-b6c9-3b79f42aee75.jpg",
-                        "alt": "Ontario_bldg_CH.jpg",
-                        "fit": "cover",
-                        "minHeight": "80vh"
-                      }
-                    },
-                    {
-                      "kind": "heading",
-                      "level": 1,
-                      "html": "Headquarters",
-                      "role": "text2",
-                      "style": {
-                        "color": "rgb(255, 255, 255)"
-                      }
-                    },
-                    {
-                      "kind": "body",
-                      "html": "Ontario, California",
-                      "role": "text8"
-                    }
-                  ]
+                "caption": {
+                  "level": 1,
+                  "role": "text2"
                 }
               },
               {
-                "token": {
-                  "cols": 1
+                "media": {
+                  "kind": "image",
+                  "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/b2f369d9-833f-4c87-9bef-22218bc81174.jpg",
+                  "alt": "WEB_HIGHRES_marmonte_costa_overall_31053.jpg",
+                  "fit": "cover",
+                  "minHeight": "80vh"
                 },
-                "node": {
-                  "kind": "stack",
-                  "children": [
-                    {
-                      "kind": "media",
-                      "media": {
-                        "kind": "image",
-                        "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/b2f369d9-833f-4c87-9bef-22218bc81174.jpg",
-                        "alt": "WEB_HIGHRES_marmonte_costa_overall_31053.jpg",
-                        "fit": "cover",
-                        "minHeight": "80vh"
-                      }
-                    },
-                    {
-                      "kind": "heading",
-                      "level": 4,
-                      "html": "MAR MONTE HOTEL BY HYATT - SANTA BARBARA, CA",
-                      "role": "text1"
-                    },
-                    {
-                      "kind": "body",
-                      "html": "Design: Beleco,  Procurement: Summa International",
-                      "role": "text1"
-                    }
-                  ]
+                "caption": {
+                  "level": 4,
+                  "role": "text1"
                 }
               },
               {
-                "token": {
-                  "cols": 1
+                "media": {
+                  "kind": "image",
+                  "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/db163235-f6e5-4b90-ade6-3a2761b9c4ea.jpg",
+                  "alt": "J Linea # 8A (1).jpg",
+                  "fit": "cover",
+                  "minHeight": "80vh"
                 },
-                "node": {
-                  "kind": "stack",
-                  "children": [
-                    {
-                      "kind": "media",
-                      "media": {
-                        "kind": "image",
-                        "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/db163235-f6e5-4b90-ade6-3a2761b9c4ea.jpg",
-                        "alt": "J Linea # 8A (1).jpg",
-                        "fit": "cover",
-                        "minHeight": "80vh"
-                      }
-                    },
-                    {
-                      "kind": "heading",
-                      "level": 4,
-                      "html": "2009 8th STREET - WASHINGTON D.C.",
-                      "role": "text1"
-                    },
-                    {
-                      "kind": "body",
-                      "html": "Design: RD Jones, Purchasing: Becwood Purchasing<br>",
-                      "role": "text1"
-                    }
-                  ]
+                "caption": {
+                  "level": 4,
+                  "role": "text1"
                 }
               },
               {
-                "token": {
-                  "cols": 1
+                "media": {
+                  "kind": "image",
+                  "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/a113e697-dc94-41ec-970a-f635952858fb.jpg",
+                  "alt": "RI_LAXRL_Night_Lobby_Seating_1.jpg",
+                  "fit": "cover",
+                  "minHeight": "80vh"
                 },
-                "node": {
-                  "kind": "stack",
-                  "children": [
-                    {
-                      "kind": "media",
-                      "media": {
-                        "kind": "image",
-                        "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/a113e697-dc94-41ec-970a-f635952858fb.jpg",
-                        "alt": "RI_LAXRL_Night_Lobby_Seating_1.jpg",
-                        "fit": "cover",
-                        "minHeight": "80vh"
-                      }
-                    },
-                    {
-                      "kind": "heading",
-                      "level": 4,
-                      "html": "RESIDENCE INN - GLENDALE, CA",
-                      "role": "text1"
-                    },
-                    {
-                      "kind": "body",
-                      "html": "Design: Sand Design,  Procurement: Canoe",
-                      "role": "text1"
-                    }
-                  ]
+                "caption": {
+                  "level": 4,
+                  "role": "text1"
                 }
               },
               {
-                "token": {
-                  "cols": 1
+                "media": {
+                  "kind": "image",
+                  "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/0d331480-7b6d-456e-9504-6e1a0b62de03.jpg",
+                  "alt": "18crop.jpg",
+                  "fit": "cover",
+                  "minHeight": "80vh"
                 },
-                "node": {
-                  "kind": "stack",
-                  "children": [
-                    {
-                      "kind": "media",
-                      "media": {
-                        "kind": "image",
-                        "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/0d331480-7b6d-456e-9504-6e1a0b62de03.jpg",
-                        "alt": "18crop.jpg",
-                        "fit": "cover",
-                        "minHeight": "80vh"
-                      }
-                    },
-                    {
-                      "kind": "heading",
-                      "level": 4,
-                      "html": "THE LAUREL - PHILADELPHIA, PA",
-                      "role": "text1"
-                    },
-                    {
-                      "kind": "body",
-                      "html": "Design &amp; Purchasing: Faulkner Design Group - Dallas, TX<br>",
-                      "role": "text1"
-                    }
-                  ]
+                "caption": {
+                  "level": 4,
+                  "role": "text1"
                 }
               },
               {
-                "token": {
-                  "cols": 1
+                "media": {
+                  "kind": "image",
+                  "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/736de6be-d9bd-4a9f-83be-137f2108ed3e.jpg",
+                  "alt": "Bar 2CROP.jpg",
+                  "fit": "cover",
+                  "minHeight": "80vh"
                 },
-                "node": {
-                  "kind": "stack",
-                  "children": [
-                    {
-                      "kind": "media",
-                      "media": {
-                        "kind": "image",
-                        "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/736de6be-d9bd-4a9f-83be-137f2108ed3e.jpg",
-                        "alt": "Bar 2CROP.jpg",
-                        "fit": "cover",
-                        "minHeight": "80vh"
-                      }
-                    },
-                    {
-                      "kind": "heading",
-                      "level": 4,
-                      "html": "THE LAUREL - PHILADELPHIA, PA",
-                      "role": "text1"
-                    },
-                    {
-                      "kind": "body",
-                      "html": "Design &amp; Purchasing: Faulkner Design Group - Dallas, TX<br>",
-                      "role": "text1"
-                    }
-                  ]
+                "caption": {
+                  "level": 4,
+                  "role": "text1"
                 }
               },
               {
-                "token": {
-                  "cols": 1
+                "media": {
+                  "kind": "image",
+                  "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/cdfe817b-e10d-4297-a378-f4507979b308.jpg",
+                  "alt": "The Read House – Chattanooga, TN",
+                  "fit": "cover",
+                  "minHeight": "80vh"
                 },
-                "node": {
-                  "kind": "stack",
-                  "children": [
-                    {
-                      "kind": "media",
-                      "media": {
-                        "kind": "image",
-                        "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/cdfe817b-e10d-4297-a378-f4507979b308.jpg",
-                        "alt": "The Read House – Chattanooga, TN",
-                        "fit": "cover",
-                        "minHeight": "80vh"
-                      }
-                    },
-                    {
-                      "kind": "heading",
-                      "level": 4,
-                      "html": "THE READ HOUSE - CHATTANOOGA, TN<br>",
-                      "role": "text1"
-                    },
-                    {
-                      "kind": "body",
-                      "html": "Design: Forrest Perkins, LLC, Procurement: ADM Associates, Inc.<br>",
-                      "role": "text1"
-                    }
-                  ]
+                "caption": {
+                  "level": 4,
+                  "role": "text1"
                 }
               },
               {
-                "token": {
-                  "cols": 1
+                "media": {
+                  "kind": "image",
+                  "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/06d15895-1c1d-427e-995e-fa335bb4f71c.jpg",
+                  "alt": "BALDWIN HARBOR - ORLANDO, FL",
+                  "fit": "cover",
+                  "minHeight": "80vh"
                 },
-                "node": {
-                  "kind": "stack",
-                  "children": [
-                    {
-                      "kind": "media",
-                      "media": {
-                        "kind": "image",
-                        "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/06d15895-1c1d-427e-995e-fa335bb4f71c.jpg",
-                        "alt": "BALDWIN HARBOR - ORLANDO, FL",
-                        "fit": "cover",
-                        "minHeight": "80vh"
-                      }
-                    },
-                    {
-                      "kind": "heading",
-                      "level": 4,
-                      "html": "<span style=\"font-size: 19.2px; font-variant-ligatures: normal; orphans: 2; widows: 2;\">BALDWIN HARBOR - ORLANDO, FL</span><br>",
-                      "role": "text1"
-                    },
-                    {
-                      "kind": "body",
-                      "html": "<span style=\"font-size: 19.2px; font-variant-ligatures: normal; orphans: 2; widows: 2;\">Design: RD Jones &amp; Associates, Procurement: Becwood Purchasing, Inc</span><br>",
-                      "role": "text1"
-                    }
-                  ]
+                "caption": {
+                  "level": 4,
+                  "role": "text1"
                 }
               },
               {
-                "token": {
-                  "cols": 1
+                "media": {
+                  "kind": "image",
+                  "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/1b5b54b3-9d1e-43e8-9c45-a5148a2edd9d.jpg",
+                  "alt": "WATERMARK HOTEL – BATON ROUGE, LA",
+                  "fit": "cover",
+                  "minHeight": "80vh"
                 },
-                "node": {
-                  "kind": "stack",
-                  "children": [
-                    {
-                      "kind": "media",
-                      "media": {
-                        "kind": "image",
-                        "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/1b5b54b3-9d1e-43e8-9c45-a5148a2edd9d.jpg",
-                        "alt": "WATERMARK HOTEL – BATON ROUGE, LA",
-                        "fit": "cover",
-                        "minHeight": "80vh"
-                      }
-                    },
-                    {
-                      "kind": "heading",
-                      "level": 4,
-                      "html": "WATERMARK - BATON ROUGE, LA<br>",
-                      "role": "text1"
-                    },
-                    {
-                      "kind": "body",
-                      "html": "Design: Gensler Houston, Procurement: HPG International",
-                      "role": "text1"
-                    }
-                  ]
+                "caption": {
+                  "level": 4,
+                  "role": "text1"
                 }
               },
               {
-                "token": {
-                  "cols": 1
+                "media": {
+                  "kind": "image",
+                  "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/dfc72c65-bfae-4b09-8fc6-7d8d4a5f27b0.jpg",
+                  "alt": "SHERATON DOWNTOWN -LOS ANGELES, CA",
+                  "fit": "cover",
+                  "minHeight": "80vh"
                 },
-                "node": {
-                  "kind": "stack",
-                  "children": [
-                    {
-                      "kind": "media",
-                      "media": {
-                        "kind": "image",
-                        "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/dfc72c65-bfae-4b09-8fc6-7d8d4a5f27b0.jpg",
-                        "alt": "SHERATON DOWNTOWN -LOS ANGELES, CA",
-                        "fit": "cover",
-                        "minHeight": "80vh"
-                      }
-                    },
-                    {
-                      "kind": "heading",
-                      "level": 4,
-                      "html": "<span style=\"font-size: 19.2px; font-variant-ligatures: normal; orphans: 2; widows: 2;\">SHERATON DOWNTOWN - LOS ANGELES, CA</span><br>",
-                      "role": "text1"
-                    },
-                    {
-                      "kind": "body",
-                      "html": "Design &amp; Procurement: Melzer Deckert &amp; Ruder Architects, Inc.<br>",
-                      "role": "text1"
-                    }
-                  ]
+                "caption": {
+                  "level": 4,
+                  "role": "text1"
                 }
               },
               {
-                "token": {
-                  "cols": 1
+                "media": {
+                  "kind": "image",
+                  "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/8bb4ab57-b41c-46b6-914c-825c03a82309.jpg",
+                  "alt": "WATERMARK HOTEL – BATON ROUGE, LA",
+                  "fit": "cover",
+                  "minHeight": "80vh"
                 },
-                "node": {
-                  "kind": "stack",
-                  "children": [
-                    {
-                      "kind": "media",
-                      "media": {
-                        "kind": "image",
-                        "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/8bb4ab57-b41c-46b6-914c-825c03a82309.jpg",
-                        "alt": "WATERMARK HOTEL – BATON ROUGE, LA",
-                        "fit": "cover",
-                        "minHeight": "80vh"
-                      }
-                    },
-                    {
-                      "kind": "heading",
-                      "level": 4,
-                      "html": "WATERMARK - BATON ROUGE, LA<br>",
-                      "role": "text1"
-                    },
-                    {
-                      "kind": "body",
-                      "html": "Design: Gensler Houston, Procurement: HPG International",
-                      "role": "text1"
-                    }
-                  ]
+                "caption": {
+                  "level": 4,
+                  "role": "text1"
                 }
               },
               {
-                "token": {
-                  "cols": 1
+                "media": {
+                  "kind": "image",
+                  "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/0c442fc4-8824-4f63-9740-bbe784205ccc.jpg",
+                  "alt": "NEUEHOUSE - LOS ANGELES, CA ",
+                  "fit": "cover",
+                  "minHeight": "80vh"
                 },
-                "node": {
-                  "kind": "stack",
-                  "children": [
-                    {
-                      "kind": "media",
-                      "media": {
-                        "kind": "image",
-                        "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/0c442fc4-8824-4f63-9740-bbe784205ccc.jpg",
-                        "alt": "NEUEHOUSE - LOS ANGELES, CA ",
-                        "fit": "cover",
-                        "minHeight": "80vh"
-                      }
-                    },
-                    {
-                      "kind": "heading",
-                      "level": 4,
-                      "html": "<span style=\"font-size: 19.2px; font-variant-ligatures: normal; orphans: 2; widows: 2;\">NEUEHOUSE-LOS ANGELES, CA</span><br>",
-                      "role": "text1"
-                    },
-                    {
-                      "kind": "body",
-                      "html": "<span style=\"font-size: 19.2px; font-variant-ligatures: normal; orphans: 2; widows: 2;\">Design: NeueHouse in conjunction with Rockwell Group, Procurement: NeueHouse</span><br>",
-                      "role": "text1"
-                    }
-                  ]
+                "caption": {
+                  "level": 4,
+                  "role": "text1"
                 }
               },
               {
-                "token": {
-                  "cols": 1
+                "media": {
+                  "kind": "image",
+                  "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/e23b9515-b959-4cdf-a7a2-006628c85da4.jpg",
+                  "alt": "BIG HORN CLUBHOUSE",
+                  "fit": "cover",
+                  "minHeight": "80vh"
                 },
-                "node": {
-                  "kind": "stack",
-                  "children": [
-                    {
-                      "kind": "media",
-                      "media": {
-                        "kind": "image",
-                        "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/e23b9515-b959-4cdf-a7a2-006628c85da4.jpg",
-                        "alt": "BIG HORN CLUBHOUSE",
-                        "fit": "cover",
-                        "minHeight": "80vh"
-                      }
-                    },
-                    {
-                      "kind": "heading",
-                      "level": 4,
-                      "html": "BIG HORN - PALM DESERT, CA",
-                      "role": "text1"
-                    },
-                    {
-                      "kind": "body",
-                      "html": "Design &amp; Procurement: Blackbird Interiors",
-                      "role": "text1"
-                    }
-                  ]
+                "caption": {
+                  "level": 4,
+                  "role": "text1"
                 }
               },
               {
-                "token": {
-                  "cols": 1
+                "media": {
+                  "kind": "image",
+                  "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/5020017c-4284-4d0c-91b8-5ff2ead56166.jpg",
+                  "alt": "Hotel Nia",
+                  "fit": "cover",
+                  "minHeight": "80vh"
                 },
-                "node": {
-                  "kind": "stack",
-                  "children": [
-                    {
-                      "kind": "media",
-                      "media": {
-                        "kind": "image",
-                        "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/5020017c-4284-4d0c-91b8-5ff2ead56166.jpg",
-                        "alt": "Hotel Nia",
-                        "fit": "cover",
-                        "minHeight": "80vh"
-                      }
-                    },
-                    {
-                      "kind": "heading",
-                      "level": 4,
-                      "html": "HOTEL NIA - MENLO PARK, CA",
-                      "role": "text1"
-                    },
-                    {
-                      "kind": "body",
-                      "html": "Design: McCartan, Procurement: Project Dynamics",
-                      "role": "text1"
-                    }
-                  ]
+                "caption": {
+                  "level": 4,
+                  "role": "text1"
                 }
               },
               {
-                "token": {
-                  "cols": 1
+                "media": {
+                  "kind": "image",
+                  "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/05153841-53c3-426f-a3fd-70bc72f60a28.jpg",
+                  "alt": "Le Montrose Hotel",
+                  "fit": "cover",
+                  "minHeight": "80vh"
                 },
-                "node": {
-                  "kind": "stack",
-                  "children": [
-                    {
-                      "kind": "media",
-                      "media": {
-                        "kind": "image",
-                        "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/05153841-53c3-426f-a3fd-70bc72f60a28.jpg",
-                        "alt": "Le Montrose Hotel",
-                        "fit": "cover",
-                        "minHeight": "80vh"
-                      }
-                    },
-                    {
-                      "kind": "heading",
-                      "level": 4,
-                      "html": "MONTROSE - WEST HOLLYWOOD, CA",
-                      "role": "text1"
-                    },
-                    {
-                      "kind": "body",
-                      "html": "Design: Perkins &amp; Will, Procurement: Bray Whaler",
-                      "role": "text1"
-                    }
-                  ]
+                "caption": {
+                  "level": 4,
+                  "role": "text1"
                 }
               },
               {
-                "token": {
-                  "cols": 1
+                "media": {
+                  "kind": "image",
+                  "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/1e3fdc11-975e-401d-9963-187bc76e4b93.jpg",
+                  "alt": "San Francisco Proper",
+                  "fit": "cover",
+                  "minHeight": "80vh"
                 },
-                "node": {
-                  "kind": "stack",
-                  "children": [
-                    {
-                      "kind": "media",
-                      "media": {
-                        "kind": "image",
-                        "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/1e3fdc11-975e-401d-9963-187bc76e4b93.jpg",
-                        "alt": "San Francisco Proper",
-                        "fit": "cover",
-                        "minHeight": "80vh"
-                      }
-                    },
-                    {
-                      "kind": "heading",
-                      "level": 4,
-                      "html": "SAN FRANCISCO PROPER HOTEL -  SAN FRANCISCO, CA",
-                      "role": "text1"
-                    },
-                    {
-                      "kind": "body",
-                      "html": "Design: Kelly Wearstler Interior Design, Procurement: Canoe Hospitality",
-                      "role": "text1"
-                    }
-                  ]
+                "caption": {
+                  "level": 4,
+                  "role": "text1"
                 }
               },
               {
-                "token": {
-                  "cols": 1
+                "media": {
+                  "kind": "image",
+                  "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/469bc802-86a4-4146-898b-5b331214e365.jpg",
+                  "alt": "W CITY CENTRY",
+                  "fit": "cover",
+                  "minHeight": "80vh"
                 },
-                "node": {
-                  "kind": "stack",
-                  "children": [
-                    {
-                      "kind": "media",
-                      "media": {
-                        "kind": "image",
-                        "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/469bc802-86a4-4146-898b-5b331214e365.jpg",
-                        "alt": "W CITY CENTRY",
-                        "fit": "cover",
-                        "minHeight": "80vh"
-                      }
-                    },
-                    {
-                      "kind": "heading",
-                      "level": 4,
-                      "html": "W CHICAGO- CITY CENTER -  CHICAGO, IL",
-                      "role": "text1"
-                    },
-                    {
-                      "kind": "body",
-                      "html": "Design: Perkins Will, Procurement: Benjamin West",
-                      "role": "text1"
-                    }
-                  ]
+                "caption": {
+                  "level": 4,
+                  "role": "text1"
                 }
               },
               {
-                "token": {
-                  "cols": 1
+                "media": {
+                  "kind": "image",
+                  "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/ad3a28de-ea26-40ca-9b0e-b44874138c63.png",
+                  "alt": "MarriotLancaster.png",
+                  "fit": "cover",
+                  "minHeight": "80vh"
                 },
-                "node": {
-                  "kind": "stack",
-                  "children": [
-                    {
-                      "kind": "media",
-                      "media": {
-                        "kind": "image",
-                        "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/ad3a28de-ea26-40ca-9b0e-b44874138c63.png",
-                        "alt": "MarriotLancaster.png",
-                        "fit": "cover",
-                        "minHeight": "80vh"
-                      }
-                    },
-                    {
-                      "kind": "heading",
-                      "level": 4,
-                      "html": "MARRIOTT LANCASTER - LANCASTER, PA   ",
-                      "role": "text1"
-                    },
-                    {
-                      "kind": "body",
-                      "html": "Design: Sand Design,  Procurement: Canoe",
-                      "role": "text1"
-                    }
-                  ]
+                "caption": {
+                  "level": 4,
+                  "role": "text1"
                 }
               }
-            ]
+            ],
+            "columns": 1
           }
         },
         "1": {
@@ -16531,506 +16204,218 @@
             "background-color": "#ededed",
             "_contentPadding": "0"
           },
-          "tree": {
-            "kind": "row",
-            "cells": [
+          "carousel": {
+            "slides": [
               {
-                "token": {
-                  "cols": 1
+                "media": {
+                  "kind": "image",
+                  "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/c9d835ed-c627-4ac3-92ac-c65fa706729c.jpg",
+                  "alt": "CH_BDwest-winner final.jpg",
+                  "fit": "cover",
+                  "minHeight": "80vh"
                 },
-                "node": {
-                  "kind": "stack",
-                  "children": [
-                    {
-                      "kind": "media",
-                      "media": {
-                        "kind": "image",
-                        "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/c9d835ed-c627-4ac3-92ac-c65fa706729c.jpg",
-                        "alt": "CH_BDwest-winner final.jpg",
-                        "fit": "cover",
-                        "minHeight": "80vh"
-                      }
-                    },
-                    {
-                      "kind": "heading",
-                      "level": 1,
-                      "html": "BDWEST 2019 - LOS ANGELES, CA<br>",
-                      "role": "text1"
-                    },
-                    {
-                      "kind": "body",
-                      "html": "Best of BDwest: Booth and Product design<br>",
-                      "role": "text1"
-                    }
-                  ]
+                "caption": {
+                  "level": 1,
+                  "role": "text1"
                 }
               },
               {
-                "token": {
-                  "cols": 1
+                "media": {
+                  "kind": "image",
+                  "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/cdfe817b-e10d-4297-a378-f4507979b308.jpg",
+                  "alt": "The Read House – Chattanooga, TN",
+                  "fit": "cover",
+                  "minHeight": "80vh"
                 },
-                "node": {
-                  "kind": "stack",
-                  "children": [
-                    {
-                      "kind": "media",
-                      "media": {
-                        "kind": "image",
-                        "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/cdfe817b-e10d-4297-a378-f4507979b308.jpg",
-                        "alt": "The Read House – Chattanooga, TN",
-                        "fit": "cover",
-                        "minHeight": "80vh"
-                      }
-                    },
-                    {
-                      "kind": "heading",
-                      "level": 4,
-                      "html": "THE READ HOUSE - CHATTANOOGA, TN<br>",
-                      "role": "text1"
-                    },
-                    {
-                      "kind": "body",
-                      "html": "Design: Forrest Perkins, LLC, Procurement: ADM Associates, Inc.<br>",
-                      "role": "text1"
-                    }
-                  ]
+                "caption": {
+                  "level": 4,
+                  "role": "text1"
                 }
               },
               {
-                "token": {
-                  "cols": 1
+                "media": {
+                  "kind": "image",
+                  "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/06d15895-1c1d-427e-995e-fa335bb4f71c.jpg",
+                  "alt": "BALDWIN HARBOR - ORLANDO, FL",
+                  "fit": "cover",
+                  "minHeight": "80vh"
                 },
-                "node": {
-                  "kind": "stack",
-                  "children": [
-                    {
-                      "kind": "media",
-                      "media": {
-                        "kind": "image",
-                        "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/06d15895-1c1d-427e-995e-fa335bb4f71c.jpg",
-                        "alt": "BALDWIN HARBOR - ORLANDO, FL",
-                        "fit": "cover",
-                        "minHeight": "80vh"
-                      }
-                    },
-                    {
-                      "kind": "heading",
-                      "level": 4,
-                      "html": "<span style=\"font-size: 19.2px; font-variant-ligatures: normal; orphans: 2; widows: 2;\">BALDWIN HARBOR - ORLANDO, FL</span><br>",
-                      "role": "text1"
-                    },
-                    {
-                      "kind": "body",
-                      "html": "<span style=\"font-size: 19.2px; font-variant-ligatures: normal; orphans: 2; widows: 2;\">Design: RD Jones &amp; Associates, Procurement: Becwood Purchasing, Inc</span><br>",
-                      "role": "text1"
-                    }
-                  ]
+                "caption": {
+                  "level": 4,
+                  "role": "text1"
                 }
               },
               {
-                "token": {
-                  "cols": 1
+                "media": {
+                  "kind": "image",
+                  "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/1b5b54b3-9d1e-43e8-9c45-a5148a2edd9d.jpg",
+                  "alt": "WATERMARK HOTEL – BATON ROUGE, LA",
+                  "fit": "cover",
+                  "minHeight": "80vh"
                 },
-                "node": {
-                  "kind": "stack",
-                  "children": [
-                    {
-                      "kind": "media",
-                      "media": {
-                        "kind": "image",
-                        "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/1b5b54b3-9d1e-43e8-9c45-a5148a2edd9d.jpg",
-                        "alt": "WATERMARK HOTEL – BATON ROUGE, LA",
-                        "fit": "cover",
-                        "minHeight": "80vh"
-                      }
-                    },
-                    {
-                      "kind": "heading",
-                      "level": 4,
-                      "html": "WATERMARK - BATON ROUGE, LA<br>",
-                      "role": "text1"
-                    },
-                    {
-                      "kind": "body",
-                      "html": "Design: Gensler Houston, Procurement: HPG International",
-                      "role": "text1"
-                    }
-                  ]
+                "caption": {
+                  "level": 4,
+                  "role": "text1"
                 }
               },
               {
-                "token": {
-                  "cols": 1
+                "media": {
+                  "kind": "image",
+                  "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/73a0bca6-d033-4676-a9da-e6d7da5d0cf8.jpg",
+                  "alt": "CH_BDwest-winner 02.jpg",
+                  "fit": "cover",
+                  "minHeight": "80vh"
                 },
-                "node": {
-                  "kind": "stack",
-                  "children": [
-                    {
-                      "kind": "media",
-                      "media": {
-                        "kind": "image",
-                        "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/73a0bca6-d033-4676-a9da-e6d7da5d0cf8.jpg",
-                        "alt": "CH_BDwest-winner 02.jpg",
-                        "fit": "cover",
-                        "minHeight": "80vh"
-                      }
-                    },
-                    {
-                      "kind": "heading",
-                      "level": 4,
-                      "html": "BDWEST 2019 - LOS ANGELES, CA<br>",
-                      "role": "text1"
-                    },
-                    {
-                      "kind": "body",
-                      "html": "Best of BDwest: Booth and Product design<br>",
-                      "role": "text1"
-                    }
-                  ]
+                "caption": {
+                  "level": 4,
+                  "role": "text1"
                 }
               },
               {
-                "token": {
-                  "cols": 1
+                "media": {
+                  "kind": "image",
+                  "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/dfc72c65-bfae-4b09-8fc6-7d8d4a5f27b0.jpg",
+                  "alt": "SHERATON DOWNTOWN -LOS ANGELES, CA",
+                  "fit": "cover",
+                  "minHeight": "80vh"
                 },
-                "node": {
-                  "kind": "stack",
-                  "children": [
-                    {
-                      "kind": "media",
-                      "media": {
-                        "kind": "image",
-                        "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/dfc72c65-bfae-4b09-8fc6-7d8d4a5f27b0.jpg",
-                        "alt": "SHERATON DOWNTOWN -LOS ANGELES, CA",
-                        "fit": "cover",
-                        "minHeight": "80vh"
-                      }
-                    },
-                    {
-                      "kind": "heading",
-                      "level": 4,
-                      "html": "<span style=\"font-size: 19.2px; font-variant-ligatures: normal; orphans: 2; widows: 2;\">SHERATON DOWNTOWN - LOS ANGELES, CA</span><br>",
-                      "role": "text1"
-                    },
-                    {
-                      "kind": "body",
-                      "html": "Design &amp; Procurement: Melzer Deckert &amp; Ruder Architects, Inc.<br>",
-                      "role": "text1"
-                    }
-                  ]
+                "caption": {
+                  "level": 4,
+                  "role": "text1"
                 }
               },
               {
-                "token": {
-                  "cols": 1
+                "media": {
+                  "kind": "image",
+                  "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/8bb4ab57-b41c-46b6-914c-825c03a82309.jpg",
+                  "alt": "WATERMARK HOTEL – BATON ROUGE, LA",
+                  "fit": "cover",
+                  "minHeight": "80vh"
                 },
-                "node": {
-                  "kind": "stack",
-                  "children": [
-                    {
-                      "kind": "media",
-                      "media": {
-                        "kind": "image",
-                        "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/8bb4ab57-b41c-46b6-914c-825c03a82309.jpg",
-                        "alt": "WATERMARK HOTEL – BATON ROUGE, LA",
-                        "fit": "cover",
-                        "minHeight": "80vh"
-                      }
-                    },
-                    {
-                      "kind": "heading",
-                      "level": 4,
-                      "html": "WATERMARK - BATON ROUGE, LA<br>",
-                      "role": "text1"
-                    },
-                    {
-                      "kind": "body",
-                      "html": "Design: Gensler Houston, Procurement: HPG International",
-                      "role": "text1"
-                    }
-                  ]
+                "caption": {
+                  "level": 4,
+                  "role": "text1"
                 }
               },
               {
-                "token": {
-                  "cols": 1
+                "media": {
+                  "kind": "image",
+                  "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/0c442fc4-8824-4f63-9740-bbe784205ccc.jpg",
+                  "alt": "NEUEHOUSE - LOS ANGELES, CA ",
+                  "fit": "cover",
+                  "minHeight": "80vh"
                 },
-                "node": {
-                  "kind": "stack",
-                  "children": [
-                    {
-                      "kind": "media",
-                      "media": {
-                        "kind": "image",
-                        "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/0c442fc4-8824-4f63-9740-bbe784205ccc.jpg",
-                        "alt": "NEUEHOUSE - LOS ANGELES, CA ",
-                        "fit": "cover",
-                        "minHeight": "80vh"
-                      }
-                    },
-                    {
-                      "kind": "heading",
-                      "level": 4,
-                      "html": "<span style=\"font-size: 19.2px; font-variant-ligatures: normal; orphans: 2; widows: 2;\">NEUEHOUSE-LOS ANGELES, CA</span><br>",
-                      "role": "text1"
-                    },
-                    {
-                      "kind": "body",
-                      "html": "<span style=\"font-size: 19.2px; font-variant-ligatures: normal; orphans: 2; widows: 2;\">Design: NeueHouse in conjunction with Rockwell Group, Procurement: NeueHouse</span><br>",
-                      "role": "text1"
-                    }
-                  ]
+                "caption": {
+                  "level": 4,
+                  "role": "text1"
                 }
               },
               {
-                "token": {
-                  "cols": 1
+                "media": {
+                  "kind": "image",
+                  "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/231dcc6e-3747-4eac-914a-77474a0cff63.jpg",
+                  "alt": "CH_BDwest-winner 03.jpg",
+                  "fit": "cover",
+                  "minHeight": "80vh"
                 },
-                "node": {
-                  "kind": "stack",
-                  "children": [
-                    {
-                      "kind": "media",
-                      "media": {
-                        "kind": "image",
-                        "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/231dcc6e-3747-4eac-914a-77474a0cff63.jpg",
-                        "alt": "CH_BDwest-winner 03.jpg",
-                        "fit": "cover",
-                        "minHeight": "80vh"
-                      }
-                    },
-                    {
-                      "kind": "heading",
-                      "level": 4,
-                      "html": "BDWEST 2019 - LOS ANGELES, CA<br>",
-                      "role": "text1"
-                    },
-                    {
-                      "kind": "body",
-                      "html": "Best of BDwest: Booth and Product design<br>",
-                      "role": "text1"
-                    }
-                  ]
+                "caption": {
+                  "level": 4,
+                  "role": "text1"
                 }
               },
               {
-                "token": {
-                  "cols": 1
+                "media": {
+                  "kind": "image",
+                  "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/10e9f65e-b255-4dc1-90c1-a2b2b7d1f1db.jpg",
+                  "alt": "BALDWIN HARBOR - ORLANDO, FL",
+                  "fit": "cover",
+                  "minHeight": "80vh"
                 },
-                "node": {
-                  "kind": "stack",
-                  "children": [
-                    {
-                      "kind": "media",
-                      "media": {
-                        "kind": "image",
-                        "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/10e9f65e-b255-4dc1-90c1-a2b2b7d1f1db.jpg",
-                        "alt": "BALDWIN HARBOR - ORLANDO, FL",
-                        "fit": "cover",
-                        "minHeight": "80vh"
-                      }
-                    },
-                    {
-                      "kind": "heading",
-                      "level": 4,
-                      "html": "<span style=\"font-size: 19.200000762939453px;\">BALDWIN HARBOR - ORLANDO, FL</span>",
-                      "role": "text1"
-                    },
-                    {
-                      "kind": "body",
-                      "html": "Design: RD Jones &amp; Associates, Procurement: Becwood Purchasing, Inc",
-                      "role": "text1"
-                    }
-                  ]
+                "caption": {
+                  "level": 4,
+                  "role": "text1"
                 }
               },
               {
-                "token": {
-                  "cols": 1
+                "media": {
+                  "kind": "image",
+                  "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/e23b9515-b959-4cdf-a7a2-006628c85da4.jpg",
+                  "alt": "BIG HORN CLUBHOUSE",
+                  "fit": "cover",
+                  "minHeight": "80vh"
                 },
-                "node": {
-                  "kind": "stack",
-                  "children": [
-                    {
-                      "kind": "media",
-                      "media": {
-                        "kind": "image",
-                        "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/e23b9515-b959-4cdf-a7a2-006628c85da4.jpg",
-                        "alt": "BIG HORN CLUBHOUSE",
-                        "fit": "cover",
-                        "minHeight": "80vh"
-                      }
-                    },
-                    {
-                      "kind": "heading",
-                      "level": 4,
-                      "html": "BIG HORN - PALM DESERT, CA",
-                      "role": "text1"
-                    },
-                    {
-                      "kind": "body",
-                      "html": "Design &amp; Procurement: Blackbird Interiors",
-                      "role": "text1"
-                    }
-                  ]
+                "caption": {
+                  "level": 4,
+                  "role": "text1"
                 }
               },
               {
-                "token": {
-                  "cols": 1
+                "media": {
+                  "kind": "image",
+                  "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/5020017c-4284-4d0c-91b8-5ff2ead56166.jpg",
+                  "alt": "Hotel Nia",
+                  "fit": "cover",
+                  "minHeight": "80vh"
                 },
-                "node": {
-                  "kind": "stack",
-                  "children": [
-                    {
-                      "kind": "media",
-                      "media": {
-                        "kind": "image",
-                        "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/5020017c-4284-4d0c-91b8-5ff2ead56166.jpg",
-                        "alt": "Hotel Nia",
-                        "fit": "cover",
-                        "minHeight": "80vh"
-                      }
-                    },
-                    {
-                      "kind": "heading",
-                      "level": 4,
-                      "html": "HOTEL NIA - MENLO PARK, CA",
-                      "role": "text1"
-                    },
-                    {
-                      "kind": "body",
-                      "html": "Design: McCartan, Procurement: Project Dynamics",
-                      "role": "text1"
-                    }
-                  ]
+                "caption": {
+                  "level": 4,
+                  "role": "text1"
                 }
               },
               {
-                "token": {
-                  "cols": 1
+                "media": {
+                  "kind": "image",
+                  "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/26122bfe-826c-4601-82a8-11fb6421a703.jpg",
+                  "alt": "CH_BDwest-winner 05.jpg",
+                  "fit": "cover",
+                  "minHeight": "80vh"
                 },
-                "node": {
-                  "kind": "stack",
-                  "children": [
-                    {
-                      "kind": "media",
-                      "media": {
-                        "kind": "image",
-                        "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/26122bfe-826c-4601-82a8-11fb6421a703.jpg",
-                        "alt": "CH_BDwest-winner 05.jpg",
-                        "fit": "cover",
-                        "minHeight": "80vh"
-                      }
-                    },
-                    {
-                      "kind": "heading",
-                      "level": 4,
-                      "html": "BDWEST 2019 - LOS ANGELES, CA<br>",
-                      "role": "text1"
-                    },
-                    {
-                      "kind": "body",
-                      "html": "Best of BDwest: Booth and Product design<br>",
-                      "role": "text1"
-                    }
-                  ]
+                "caption": {
+                  "level": 4,
+                  "role": "text1"
                 }
               },
               {
-                "token": {
-                  "cols": 1
+                "media": {
+                  "kind": "image",
+                  "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/05153841-53c3-426f-a3fd-70bc72f60a28.jpg",
+                  "alt": "Le Montrose Hotel",
+                  "fit": "cover",
+                  "minHeight": "80vh"
                 },
-                "node": {
-                  "kind": "stack",
-                  "children": [
-                    {
-                      "kind": "media",
-                      "media": {
-                        "kind": "image",
-                        "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/05153841-53c3-426f-a3fd-70bc72f60a28.jpg",
-                        "alt": "Le Montrose Hotel",
-                        "fit": "cover",
-                        "minHeight": "80vh"
-                      }
-                    },
-                    {
-                      "kind": "heading",
-                      "level": 4,
-                      "html": "MONTROSE - WEST HOLLYWOOD, CA",
-                      "role": "text1"
-                    },
-                    {
-                      "kind": "body",
-                      "html": "Design: Perkins &amp; Will, Procurement: Bray Whaler",
-                      "role": "text1"
-                    }
-                  ]
+                "caption": {
+                  "level": 4,
+                  "role": "text1"
                 }
               },
               {
-                "token": {
-                  "cols": 1
+                "media": {
+                  "kind": "image",
+                  "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/1e3fdc11-975e-401d-9963-187bc76e4b93.jpg",
+                  "alt": "San Francisco Proper",
+                  "fit": "cover",
+                  "minHeight": "80vh"
                 },
-                "node": {
-                  "kind": "stack",
-                  "children": [
-                    {
-                      "kind": "media",
-                      "media": {
-                        "kind": "image",
-                        "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/1e3fdc11-975e-401d-9963-187bc76e4b93.jpg",
-                        "alt": "San Francisco Proper",
-                        "fit": "cover",
-                        "minHeight": "80vh"
-                      }
-                    },
-                    {
-                      "kind": "heading",
-                      "level": 4,
-                      "html": "SAN FRANCISCO PROPER HOTEL -  SAN FRANCISCO, CA",
-                      "role": "text1"
-                    },
-                    {
-                      "kind": "body",
-                      "html": "Design: Kelly Wearstler Interior Design, Procurement: Canoe Hospitality",
-                      "role": "text1"
-                    }
-                  ]
+                "caption": {
+                  "level": 4,
+                  "role": "text1"
                 }
               },
               {
-                "token": {
-                  "cols": 1
+                "media": {
+                  "kind": "image",
+                  "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/469bc802-86a4-4146-898b-5b331214e365.jpg",
+                  "alt": "W CITY CENTRY",
+                  "fit": "cover",
+                  "minHeight": "80vh"
                 },
-                "node": {
-                  "kind": "stack",
-                  "children": [
-                    {
-                      "kind": "media",
-                      "media": {
-                        "kind": "image",
-                        "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/469bc802-86a4-4146-898b-5b331214e365.jpg",
-                        "alt": "W CITY CENTRY",
-                        "fit": "cover",
-                        "minHeight": "80vh"
-                      }
-                    },
-                    {
-                      "kind": "heading",
-                      "level": 4,
-                      "html": "W CHICAGO- CITY CENTER -  CHICAGO, IL",
-                      "role": "text1"
-                    },
-                    {
-                      "kind": "body",
-                      "html": "Design: Perkins Will, Procurement: Benjamin West",
-                      "role": "text1"
-                    }
-                  ]
+                "caption": {
+                  "level": 4,
+                  "role": "text1"
                 }
               }
-            ]
+            ],
+            "columns": 1
           }
         },
         "1": {
