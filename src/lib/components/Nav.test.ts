@@ -39,22 +39,45 @@ afterEach(() => {
 const frame = () => new Promise((r) => requestAnimationFrame(r));
 
 // Hash hrefs keep jsdom from attempting (unimplemented) page navigation.
-const navLinks = [
-  { text: "Services", href: "#services" },
-  { text: "About", href: "#about" },
+const items = [
+  { label: "Services", href: "#services" },
+  { label: "About", href: "#about" },
+];
+
+// A top item with dropdown children (renders as a desktop dropdown / mobile
+// accordion).
+const itemsWithDropdown = [
+  {
+    label: "Products",
+    href: "",
+    children: [
+      { label: "Chairs", href: "#chairs" },
+      { label: "Tables", href: "#tables" },
+    ],
+  },
+  { label: "About", href: "#about" },
 ];
 
 describe("Nav — logo-only mode", () => {
-  it("renders no menu button without navLinks", () => {
+  it("renders no menu button without items", () => {
     const { queryByLabelText, getByText } = render(Nav);
     expect(getByText("Logo")).toBeTruthy();
     expect(queryByLabelText("Open menu")).toBeNull();
+  });
+
+  it("renders the resolved logo image when given a logo", () => {
+    const { getByAltText } = render(Nav, {
+      logo: { url: "https://cdn.example/logo.png", maxWidth: "250px" },
+    });
+    const img = getByAltText("Home") as HTMLImageElement;
+    expect(img.getAttribute("src")).toBe("https://cdn.example/logo.png");
+    expect(img.style.maxWidth).toBe("250px");
   });
 });
 
 describe("Nav — mobile menu", () => {
   it("opens the menu and moves focus into it", async () => {
-    const { getByLabelText, getByRole } = render(Nav, { navLinks });
+    const { getByLabelText, getByRole } = render(Nav, { items });
 
     await fireEvent.click(getByLabelText("Open menu"));
     const dialog = getByRole("dialog");
@@ -65,7 +88,7 @@ describe("Nav — mobile menu", () => {
   });
 
   it("wraps Tab from the last link back to the close button", async () => {
-    const { getByLabelText, getByRole } = render(Nav, { navLinks });
+    const { getByLabelText, getByRole } = render(Nav, { items });
     await fireEvent.click(getByLabelText("Open menu"));
     await frame();
 
@@ -87,7 +110,7 @@ describe("Nav — mobile menu", () => {
 
   it("closes on Escape and returns focus to the re-mounted trigger", async () => {
     const { getByLabelText, getByRole, queryByRole } = render(Nav, {
-      navLinks,
+      items,
     });
     await fireEvent.click(getByLabelText("Open menu"));
     await frame();
@@ -104,7 +127,7 @@ describe("Nav — mobile menu", () => {
 
   it("closes when a menu link is activated", async () => {
     const { getByLabelText, getByRole, queryByRole } = render(Nav, {
-      navLinks,
+      items,
     });
     await fireEvent.click(getByLabelText("Open menu"));
     await frame();
@@ -113,5 +136,77 @@ describe("Nav — mobile menu", () => {
     await fireEvent.click(link);
 
     expect(queryByRole("dialog")).toBeNull();
+  });
+
+  it("renders duplicate labels/hrefs without crashing (index-keyed each)", () => {
+    // Two children pointing at the same href, and repeated top-level labels —
+    // both would throw each_key_duplicate at hydration if keyed by label/href.
+    const dupes = [
+      {
+        label: "Company",
+        href: "",
+        children: [
+          { label: "About", href: "/contact" },
+          { label: "Team", href: "/contact" },
+        ],
+      },
+      { label: "Company", href: "/company" },
+    ];
+    expect(() => render(Nav, { items: dupes })).not.toThrow();
+  });
+
+  it("renders an empty-href item as non-interactive text, not a dead link", () => {
+    const { container, getByText } = render(Nav, {
+      items: [{ label: "Heading", href: "" }],
+    });
+    expect(getByText("Heading").tagName).toBe("SPAN");
+    // The only <a> is the logo home link; no <a href=""> leaf.
+    const emptyLinks = Array.from(container.querySelectorAll("a")).filter(
+      (a) => a.getAttribute("href") === "",
+    );
+    expect(emptyLinks).toHaveLength(0);
+  });
+
+  it("desktop dropdown is a disclosure: aria-expanded toggles, Escape closes", async () => {
+    const { container } = render(Nav, { items: itemsWithDropdown });
+    // The desktop dropdown toggle carries aria-controls (the mobile menu isn't
+    // open, so it's the only such button).
+    const toggle = container.querySelector(
+      "button[aria-controls]",
+    ) as HTMLButtonElement;
+    expect(toggle).toBeTruthy();
+    // No misleading aria-haspopup (the popup is a list of links, not a menu).
+    expect(toggle.getAttribute("aria-haspopup")).toBeNull();
+    expect(toggle.getAttribute("aria-expanded")).toBe("false");
+
+    await fireEvent.click(toggle);
+    expect(toggle.getAttribute("aria-expanded")).toBe("true");
+
+    await fireEvent.keyDown(toggle, { key: "Escape" });
+    expect(toggle.getAttribute("aria-expanded")).toBe("false");
+  });
+
+  it("expands a dropdown as an accordion and reveals its children", async () => {
+    const { getByLabelText, getByRole } = render(Nav, {
+      items: itemsWithDropdown,
+    });
+    await fireEvent.click(getByLabelText("Open menu"));
+    await frame();
+
+    // Scope to the dialog: the desktop dropdown <ul> also holds these links and
+    // jsdom applies no stylesheet, so Tailwind's `hidden`/`lg:flex` doesn't hide
+    // it — only the dialog's accordion actually collapses its children.
+    const dialog = getByRole("dialog");
+    expect(dialog.textContent).not.toContain("Chairs");
+
+    const toggle = Array.from(dialog.querySelectorAll("button")).find((b) =>
+      b.textContent?.includes("Products"),
+    )!;
+    expect(toggle.getAttribute("aria-expanded")).toBe("false");
+
+    await fireEvent.click(toggle);
+    expect(toggle.getAttribute("aria-expanded")).toBe("true");
+    expect(dialog.textContent).toContain("Chairs");
+    expect(dialog.textContent).toContain("Tables");
   });
 });
