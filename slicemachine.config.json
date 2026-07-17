@@ -1,8 +1,6 @@
 {
   "repositoryName": "composition-hospitality",
   "adapter": "@slicemachine/adapter-sveltekit",
-  "libraries": [
-    "./src/lib/slices"
-  ],
+  "libraries": ["./src/lib/slices"],
   "localSliceSimulatorURL": "http://localhost:5173/slice-simulator"
 }
