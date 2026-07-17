@@ -5,58 +5,76 @@
       "variation": "default",
       "items": [
         {
-          "caption": "Headquarters"
+          "caption": "Headquarters",
+          "subcaption": "Ontario, California"
         },
         {
-          "caption": "MAR MONTE HOTEL BY HYATT - SANTA BARBARA, CA"
+          "caption": "MAR MONTE HOTEL BY HYATT - SANTA BARBARA, CA",
+          "subcaption": "Design: Beleco, Procurement: Summa International"
         },
         {
-          "caption": "2009 8th STREET - WASHINGTON D.C."
+          "caption": "2009 8th STREET - WASHINGTON D.C.",
+          "subcaption": "Design: RD Jones, Purchasing: Becwood Purchasing"
         },
         {
-          "caption": "RESIDENCE INN - GLENDALE, CA"
+          "caption": "RESIDENCE INN - GLENDALE, CA",
+          "subcaption": "Design: Sand Design, Procurement: Canoe"
         },
         {
-          "caption": "THE LAUREL - PHILADELPHIA, PA"
+          "caption": "THE LAUREL - PHILADELPHIA, PA",
+          "subcaption": "Design & Purchasing: Faulkner Design Group - Dallas, TX"
         },
         {
-          "caption": "THE LAUREL - PHILADELPHIA, PA"
+          "caption": "THE LAUREL - PHILADELPHIA, PA",
+          "subcaption": "Design & Purchasing: Faulkner Design Group - Dallas, TX"
         },
         {
-          "caption": "THE READ HOUSE - CHATTANOOGA, TN"
+          "caption": "THE READ HOUSE - CHATTANOOGA, TN",
+          "subcaption": "Design: Forrest Perkins, LLC, Procurement: ADM Associates, Inc."
         },
         {
-          "caption": "BALDWIN HARBOR - ORLANDO, FL"
+          "caption": "BALDWIN HARBOR - ORLANDO, FL",
+          "subcaption": "Design: RD Jones & Associates, Procurement: Becwood Purchasing, Inc"
         },
         {
-          "caption": "WATERMARK - BATON ROUGE, LA"
+          "caption": "WATERMARK - BATON ROUGE, LA",
+          "subcaption": "Design: Gensler Houston, Procurement: HPG International"
         },
         {
-          "caption": "SHERATON DOWNTOWN - LOS ANGELES, CA"
+          "caption": "SHERATON DOWNTOWN - LOS ANGELES, CA",
+          "subcaption": "Design & Procurement: Melzer Deckert & Ruder Architects, Inc."
         },
         {
-          "caption": "WATERMARK - BATON ROUGE, LA"
+          "caption": "WATERMARK - BATON ROUGE, LA",
+          "subcaption": "Design: Gensler Houston, Procurement: HPG International"
         },
         {
-          "caption": "NEUEHOUSE-LOS ANGELES, CA"
+          "caption": "NEUEHOUSE-LOS ANGELES, CA",
+          "subcaption": "Design: NeueHouse in conjunction with Rockwell Group, Procurement: NeueHouse"
         },
         {
-          "caption": "BIG HORN - PALM DESERT, CA"
+          "caption": "BIG HORN - PALM DESERT, CA",
+          "subcaption": "Design & Procurement: Blackbird Interiors"
         },
         {
-          "caption": "HOTEL NIA - MENLO PARK, CA"
+          "caption": "HOTEL NIA - MENLO PARK, CA",
+          "subcaption": "Design: McCartan, Procurement: Project Dynamics"
         },
         {
-          "caption": "MONTROSE - WEST HOLLYWOOD, CA"
+          "caption": "MONTROSE - WEST HOLLYWOOD, CA",
+          "subcaption": "Design: Perkins & Will, Procurement: Bray Whaler"
         },
         {
-          "caption": "SAN FRANCISCO PROPER HOTEL - SAN FRANCISCO, CA"
+          "caption": "SAN FRANCISCO PROPER HOTEL - SAN FRANCISCO, CA",
+          "subcaption": "Design: Kelly Wearstler Interior Design, Procurement: Canoe Hospitality"
         },
         {
-          "caption": "W CHICAGO- CITY CENTER - CHICAGO, IL"
+          "caption": "W CHICAGO- CITY CENTER - CHICAGO, IL",
+          "subcaption": "Design: Perkins Will, Procurement: Benjamin West"
         },
         {
-          "caption": "MARRIOTT LANCASTER - LANCASTER, PA"
+          "caption": "MARRIOTT LANCASTER - LANCASTER, PA",
+          "subcaption": "Design: Sand Design, Procurement: Canoe"
         }
       ],
       "primary": {
@@ -263,52 +281,68 @@
       "variation": "default",
       "items": [
         {
-          "caption": "BDWEST 2019 - LOS ANGELES, CA"
+          "caption": "BDWEST 2019 - LOS ANGELES, CA",
+          "subcaption": "Best of BDwest: Booth and Product design"
         },
         {
-          "caption": "THE READ HOUSE - CHATTANOOGA, TN"
+          "caption": "THE READ HOUSE - CHATTANOOGA, TN",
+          "subcaption": "Design: Forrest Perkins, LLC, Procurement: ADM Associates, Inc."
         },
         {
-          "caption": "BALDWIN HARBOR - ORLANDO, FL"
+          "caption": "BALDWIN HARBOR - ORLANDO, FL",
+          "subcaption": "Design: RD Jones & Associates, Procurement: Becwood Purchasing, Inc"
         },
         {
-          "caption": "WATERMARK - BATON ROUGE, LA"
+          "caption": "WATERMARK - BATON ROUGE, LA",
+          "subcaption": "Design: Gensler Houston, Procurement: HPG International"
         },
         {
-          "caption": "BDWEST 2019 - LOS ANGELES, CA"
+          "caption": "BDWEST 2019 - LOS ANGELES, CA",
+          "subcaption": "Best of BDwest: Booth and Product design"
         },
         {
-          "caption": "SHERATON DOWNTOWN - LOS ANGELES, CA"
+          "caption": "SHERATON DOWNTOWN - LOS ANGELES, CA",
+          "subcaption": "Design & Procurement: Melzer Deckert & Ruder Architects, Inc."
         },
         {
-          "caption": "WATERMARK - BATON ROUGE, LA"
+          "caption": "WATERMARK - BATON ROUGE, LA",
+          "subcaption": "Design: Gensler Houston, Procurement: HPG International"
         },
         {
-          "caption": "NEUEHOUSE-LOS ANGELES, CA"
+          "caption": "NEUEHOUSE-LOS ANGELES, CA",
+          "subcaption": "Design: NeueHouse in conjunction with Rockwell Group, Procurement: NeueHouse"
         },
         {
-          "caption": "BDWEST 2019 - LOS ANGELES, CA"
+          "caption": "BDWEST 2019 - LOS ANGELES, CA",
+          "subcaption": "Best of BDwest: Booth and Product design"
         },
         {
-          "caption": "BALDWIN HARBOR - ORLANDO, FL"
+          "caption": "BALDWIN HARBOR - ORLANDO, FL",
+          "subcaption": "Design: RD Jones & Associates, Procurement: Becwood Purchasing, Inc"
         },
         {
-          "caption": "BIG HORN - PALM DESERT, CA"
+          "caption": "BIG HORN - PALM DESERT, CA",
+          "subcaption": "Design & Procurement: Blackbird Interiors"
         },
         {
-          "caption": "HOTEL NIA - MENLO PARK, CA"
+          "caption": "HOTEL NIA - MENLO PARK, CA",
+          "subcaption": "Design: McCartan, Procurement: Project Dynamics"
         },
         {
-          "caption": "BDWEST 2019 - LOS ANGELES, CA"
+          "caption": "BDWEST 2019 - LOS ANGELES, CA",
+          "subcaption": "Best of BDwest: Booth and Product design"
         },
         {
-          "caption": "MONTROSE - WEST HOLLYWOOD, CA"
+          "caption": "MONTROSE - WEST HOLLYWOOD, CA",
+          "subcaption": "Design: Perkins & Will, Procurement: Bray Whaler"
         },
         {
-          "caption": "SAN FRANCISCO PROPER HOTEL - SAN FRANCISCO, CA"
+          "caption": "SAN FRANCISCO PROPER HOTEL - SAN FRANCISCO, CA",
+          "subcaption": "Design: Kelly Wearstler Interior Design, Procurement: Canoe Hospitality"
         },
         {
-          "caption": "W CHICAGO- CITY CENTER - CHICAGO, IL"
+          "caption": "W CHICAGO- CITY CENTER - CHICAGO, IL",
+          "subcaption": "Design: Perkins Will, Procurement: Benjamin West"
         }
       ],
       "primary": {

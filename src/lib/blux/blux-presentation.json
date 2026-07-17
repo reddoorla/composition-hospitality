@@ -25,6 +25,9 @@
                 "caption": {
                   "level": 1,
                   "role": "text2"
+                },
+                "subcaption": {
+                  "role": "text8"
                 }
               },
               {
@@ -37,6 +40,9 @@
                 },
                 "caption": {
                   "level": 4,
+                  "role": "text1"
+                },
+                "subcaption": {
                   "role": "text1"
                 }
               },
@@ -51,6 +57,9 @@
                 "caption": {
                   "level": 4,
                   "role": "text1"
+                },
+                "subcaption": {
+                  "role": "text1"
                 }
               },
               {
@@ -63,6 +72,9 @@
                 },
                 "caption": {
                   "level": 4,
+                  "role": "text1"
+                },
+                "subcaption": {
                   "role": "text1"
                 }
               },
@@ -77,6 +89,9 @@
                 "caption": {
                   "level": 4,
                   "role": "text1"
+                },
+                "subcaption": {
+                  "role": "text1"
                 }
               },
               {
@@ -89,6 +104,9 @@
                 },
                 "caption": {
                   "level": 4,
+                  "role": "text1"
+                },
+                "subcaption": {
                   "role": "text1"
                 }
               },
@@ -103,6 +121,9 @@
                 "caption": {
                   "level": 4,
                   "role": "text1"
+                },
+                "subcaption": {
+                  "role": "text1"
                 }
               },
               {
@@ -115,6 +136,9 @@
                 },
                 "caption": {
                   "level": 4,
+                  "role": "text1"
+                },
+                "subcaption": {
                   "role": "text1"
                 }
               },
@@ -129,6 +153,9 @@
                 "caption": {
                   "level": 4,
                   "role": "text1"
+                },
+                "subcaption": {
+                  "role": "text1"
                 }
               },
               {
@@ -141,6 +168,9 @@
                 },
                 "caption": {
                   "level": 4,
+                  "role": "text1"
+                },
+                "subcaption": {
                   "role": "text1"
                 }
               },
@@ -155,6 +185,9 @@
                 "caption": {
                   "level": 4,
                   "role": "text1"
+                },
+                "subcaption": {
+                  "role": "text1"
                 }
               },
               {
@@ -167,6 +200,9 @@
                 },
                 "caption": {
                   "level": 4,
+                  "role": "text1"
+                },
+                "subcaption": {
                   "role": "text1"
                 }
               },
@@ -181,6 +217,9 @@
                 "caption": {
                   "level": 4,
                   "role": "text1"
+                },
+                "subcaption": {
+                  "role": "text1"
                 }
               },
               {
@@ -193,6 +232,9 @@
                 },
                 "caption": {
                   "level": 4,
+                  "role": "text1"
+                },
+                "subcaption": {
                   "role": "text1"
                 }
               },
@@ -207,6 +249,9 @@
                 "caption": {
                   "level": 4,
                   "role": "text1"
+                },
+                "subcaption": {
+                  "role": "text1"
                 }
               },
               {
@@ -219,6 +264,9 @@
                 },
                 "caption": {
                   "level": 4,
+                  "role": "text1"
+                },
+                "subcaption": {
                   "role": "text1"
                 }
               },
@@ -233,6 +281,9 @@
                 "caption": {
                   "level": 4,
                   "role": "text1"
+                },
+                "subcaption": {
+                  "role": "text1"
                 }
               },
               {
@@ -245,6 +296,9 @@
                 },
                 "caption": {
                   "level": 4,
+                  "role": "text1"
+                },
+                "subcaption": {
                   "role": "text1"
                 }
               }
@@ -18163,6 +18217,9 @@
                 "caption": {
                   "level": 1,
                   "role": "text1"
+                },
+                "subcaption": {
+                  "role": "text1"
                 }
               },
               {
@@ -18175,6 +18232,9 @@
                 },
                 "caption": {
                   "level": 4,
+                  "role": "text1"
+                },
+                "subcaption": {
                   "role": "text1"
                 }
               },
@@ -18189,6 +18249,9 @@
                 "caption": {
                   "level": 4,
                   "role": "text1"
+                },
+                "subcaption": {
+                  "role": "text1"
                 }
               },
               {
@@ -18201,6 +18264,9 @@
                 },
                 "caption": {
                   "level": 4,
+                  "role": "text1"
+                },
+                "subcaption": {
                   "role": "text1"
                 }
               },
@@ -18215,6 +18281,9 @@
                 "caption": {
                   "level": 4,
                   "role": "text1"
+                },
+                "subcaption": {
+                  "role": "text1"
                 }
               },
               {
@@ -18227,6 +18296,9 @@
                 },
                 "caption": {
                   "level": 4,
+                  "role": "text1"
+                },
+                "subcaption": {
                   "role": "text1"
                 }
               },
@@ -18241,6 +18313,9 @@
                 "caption": {
                   "level": 4,
                   "role": "text1"
+                },
+                "subcaption": {
+                  "role": "text1"
                 }
               },
               {
@@ -18253,6 +18328,9 @@
                 },
                 "caption": {
                   "level": 4,
+                  "role": "text1"
+                },
+                "subcaption": {
                   "role": "text1"
                 }
               },
@@ -18267,6 +18345,9 @@
                 "caption": {
                   "level": 4,
                   "role": "text1"
+                },
+                "subcaption": {
+                  "role": "text1"
                 }
               },
               {
@@ -18279,6 +18360,9 @@
                 },
                 "caption": {
                   "level": 4,
+                  "role": "text1"
+                },
+                "subcaption": {
                   "role": "text1"
                 }
               },
@@ -18293,6 +18377,9 @@
                 "caption": {
                   "level": 4,
                   "role": "text1"
+                },
+                "subcaption": {
+                  "role": "text1"
                 }
               },
               {
@@ -18305,6 +18392,9 @@
                 },
                 "caption": {
                   "level": 4,
+                  "role": "text1"
+                },
+                "subcaption": {
                   "role": "text1"
                 }
               },
@@ -18319,6 +18409,9 @@
                 "caption": {
                   "level": 4,
                   "role": "text1"
+                },
+                "subcaption": {
+                  "role": "text1"
                 }
               },
               {
@@ -18331,6 +18424,9 @@
                 },
                 "caption": {
                   "level": 4,
+                  "role": "text1"
+                },
+                "subcaption": {
                   "role": "text1"
                 }
               },
@@ -18345,6 +18441,9 @@
                 "caption": {
                   "level": 4,
                   "role": "text1"
+                },
+                "subcaption": {
+                  "role": "text1"
                 }
               },
               {
@@ -18357,6 +18456,9 @@
                 },
                 "caption": {
                   "level": 4,
+                  "role": "text1"
+                },
+                "subcaption": {
                   "role": "text1"
                 }
               }
