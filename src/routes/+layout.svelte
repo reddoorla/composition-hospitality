@@ -10,6 +10,11 @@
   import TransitionOverlay from "$lib/components/TransitionOverlay.svelte";
   import Nav from "$lib/components/Nav.svelte";
   import Footer from "$lib/components/Footer.svelte";
+  import { loadSiteConfig } from "$lib/blux/site-config";
+
+  // Site chrome from the Blux convert (empty stub on an unconverted starter →
+  // logo-only Nav + placeholder Footer).
+  const siteConfig = loadSiteConfig();
   import {
     disableSmoothScroll,
     restoreSmoothScroll,
@@ -40,13 +45,13 @@
   Skip to main content
 </a>
 <div class="flex flex-col min-h-screen">
-  <Nav />
+  <Nav items={siteConfig.nav.items} logo={siteConfig.nav.logo} />
 
   <main id="main-content" tabindex="-1" class="flex-1">
     {@render children?.()}
   </main>
 
-  <Footer />
+  <Footer socials={siteConfig.footer.socials} text={siteConfig.footer.text} />
 </div>
 <TransitionOverlay />
 <LandscapeModal />

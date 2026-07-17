@@ -1,0 +1,87 @@
+{
+  "nav": {
+    "logo": {
+      "url": "https://d3syaxnfm3oj0e.cloudfront.net/23274ebb-a569-4ea8-a33a-2ffa4a7bcbb7/5dc6716d-fd16-4bbe-90f0-2d3062f9b39f.png",
+      "maxWidth": "250px"
+    },
+    "items": [
+      {
+        "label": "Catalogs",
+        "href": "/product-catalogs"
+      },
+      {
+        "label": "Products",
+        "href": "",
+        "children": [
+          {
+            "label": "Upholstered",
+            "href": "/products/upholstered"
+          },
+          {
+            "label": "Case",
+            "href": "/products/case"
+          },
+          {
+            "label": "Metal",
+            "href": "/products/metal"
+          },
+          {
+            "label": "Finishes",
+            "href": "/products/finishes"
+          }
+        ]
+      },
+      {
+        "label": "Projects",
+        "href": "",
+        "children": [
+          {
+            "label": "Gallery",
+            "href": "/gallery"
+          },
+          {
+            "label": "Portfolio",
+            "href": "/portfolio"
+          }
+        ]
+      },
+      {
+        "label": "About",
+        "href": "/about"
+      },
+      {
+        "label": "Meet the Team",
+        "href": "/3-column-team"
+      },
+      {
+        "label": "Contact",
+        "href": "/contact"
+      }
+    ]
+  },
+  "footer": {
+    "socials": [
+      {
+        "network": "facebook",
+        "href": "http://www.facebook.com/pages/Composition-Hospitality/1505590556391395"
+      },
+      {
+        "network": "twitter",
+        "href": "http://www.twitter.com/Composition2014"
+      },
+      {
+        "network": "instagram",
+        "href": "http://www.instagram.com/compositionhospitality"
+      },
+      {
+        "network": "pinterest",
+        "href": "http://www.pinterest.com/composition2014"
+      },
+      {
+        "network": "linkedin-company",
+        "href": "http://www.linkedin.com/company/composition-hospitality"
+      }
+    ],
+    "text": "© Composition Hospitality 2017, All Rights Reserved"
+  }
+}
