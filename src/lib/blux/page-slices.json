@@ -51,21 +51,19 @@
       }
     },
     {
-      "slice_type": "title_band",
+      "slice_type": "grid_band",
       "variation": "default",
       "items": [],
       "primary": {
-        "band": 1,
-        "heading": "Interior"
+        "band": 1
       }
     },
     {
-      "slice_type": "title_band",
+      "slice_type": "grid_band",
       "variation": "default",
       "items": [],
       "primary": {
-        "band": 2,
-        "heading": "Exterior"
+        "band": 2
       }
     }
   ],
@@ -188,21 +186,19 @@
       }
     },
     {
-      "slice_type": "title_band",
+      "slice_type": "grid_band",
       "variation": "default",
       "items": [],
       "primary": {
-        "band": 2,
-        "heading": "Images of Select Interior Projects"
+        "band": 2
       }
     },
     {
-      "slice_type": "title_band",
+      "slice_type": "grid_band",
       "variation": "default",
       "items": [],
       "primary": {
-        "band": 3,
-        "heading": "IMAGES OF SELECT Exterior Projects"
+        "band": 3
       }
     }
   ],
