@@ -145,6 +145,7 @@ export type BandPresentation = {
     slides: {
       media: RenderMedia;
       caption?: { level?: number; role?: string };
+      subcaption?: { role?: string };
     }[];
     columns?: number;
   };
