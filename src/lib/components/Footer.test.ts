@@ -53,12 +53,16 @@ describe("Footer", () => {
     expect(container.querySelector("ul")).toBeNull();
   });
 
-  it("omits target/rel when a social has no href", () => {
-    const { getByLabelText } = render(Footer, {
+  it("renders a hrefless social as a non-interactive glyph, not a dead link", () => {
+    const { getByLabelText, container } = render(Footer, {
       socials: [{ network: "youtube" }],
     });
     const yt = getByLabelText("YouTube");
-    expect(yt.getAttribute("href")).toBe("#");
-    expect(yt.getAttribute("target")).toBeNull();
+    // No <a> (a href="#" would be a dead link); a labelled role=img span instead.
+    expect(yt.tagName).toBe("SPAN");
+    expect(yt.getAttribute("role")).toBe("img");
+    expect(container.querySelector("a")).toBeNull();
+    // The brand glyph still renders.
+    expect(container.querySelector("svg")).toBeTruthy();
   });
 });

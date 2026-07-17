@@ -17,8 +17,10 @@
 
   let isMenuOpen = $state(false);
   let openButtonEl = $state<HTMLButtonElement>();
-  // Which mobile dropdown is expanded (accordion); desktop uses hover/focus CSS.
+  // Which dropdown is expanded. Desktop click-toggles + hover/focus reveal;
+  // mobile is a tap accordion.
   let openMobileIndex = $state<number | null>(null);
+  let openDesktopIndex = $state<number | null>(null);
 
   const openMenu = () => (isMenuOpen = true);
   const closeMenu = () => {
@@ -44,36 +46,53 @@
   </a>
 
   {#if items.length > 0}
-    <!-- Desktop: inline top items; an item with children reveals its dropdown
-         on hover AND focus-within (keyboard-reachable). -->
+    <!-- Desktop: inline top items. An item with children is a disclosure —
+         click toggles it (aria-expanded), and hover/focus-within also reveal it
+         for pointer/keyboard-tab users. Keyed by index: nav labels/hrefs aren't
+         unique (two "" heading hrefs or repeated labels would collide and Svelte
+         throws each_key_duplicate at hydration). -->
     <ul class="hidden items-center gap-8 lg:flex">
-      {#each items as item (item.label)}
+      {#each items as item, i (i)}
         {#if item.children && item.children.length > 0}
           <li class="group relative">
-            <!-- A dropdown toggle (a button, not a dead link) so keyboard users
-                 can open it; hover opens it for pointer users. -->
             <button
               type="button"
               class="flex items-center gap-1"
-              aria-haspopup="true"
+              aria-expanded={openDesktopIndex === i}
+              aria-controls="nav-dropdown-{i}"
+              onclick={() =>
+                (openDesktopIndex = openDesktopIndex === i ? null : i)}
+              onkeydown={(e) => {
+                if (e.key === "Escape") openDesktopIndex = null;
+              }}
             >
               {item.label}
               <ChevronDown size={16} aria-hidden="true" />
             </button>
             <ul
-              class="invisible absolute top-full left-0 flex min-w-48 flex-col gap-1 bg-background p-2 opacity-0 shadow-lg transition-opacity group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100"
+              id="nav-dropdown-{i}"
+              class="absolute top-full left-0 flex min-w-48 flex-col gap-1 bg-background p-2 shadow-lg transition-opacity group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100"
+              class:invisible={openDesktopIndex !== i}
+              class:opacity-0={openDesktopIndex !== i}
             >
-              {#each item.children as child (child.href)}
+              {#each item.children as child, ci (ci)}
                 <li>
-                  <a href={child.href} class="block px-3 py-2 hover:opacity-70"
-                    >{child.label}</a
-                  >
+                  {#if child.href}
+                    <a
+                      href={child.href}
+                      class="block px-3 py-2 hover:opacity-70">{child.label}</a
+                    >
+                  {:else}
+                    <span class="block px-3 py-2">{child.label}</span>
+                  {/if}
                 </li>
               {/each}
             </ul>
           </li>
-        {:else}
+        {:else if item.href}
           <li><a href={item.href}>{item.label}</a></li>
+        {:else}
+          <li><span>{item.label}</span></li>
         {/if}
       {/each}
     </ul>
@@ -113,7 +132,7 @@
       <X size={24} />
     </button>
 
-    {#each items as item, i (item.label)}
+    {#each items as item, i (i)}
       {#if item.children && item.children.length > 0}
         <!-- Mobile: a dropdown becomes an accordion — tap to expand its links. -->
         <div class="flex flex-col items-center gap-2">
@@ -127,19 +146,25 @@
             <ChevronDown size={16} aria-hidden="true" />
           </button>
           {#if openMobileIndex === i}
-            {#each item.children as child (child.href)}
-              <a
-                href={child.href}
-                class="px-4 py-2 opacity-80"
-                onclick={closeMenu}>{child.label}</a
-              >
+            {#each item.children as child, ci (ci)}
+              {#if child.href}
+                <a
+                  href={child.href}
+                  class="px-4 py-2 opacity-80"
+                  onclick={closeMenu}>{child.label}</a
+                >
+              {:else}
+                <span class="px-4 py-2 opacity-80">{child.label}</span>
+              {/if}
             {/each}
           {/if}
         </div>
-      {:else}
+      {:else if item.href}
         <a href={item.href} class="px-4 py-3" onclick={closeMenu}
           >{item.label}</a
         >
+      {:else}
+        <span class="px-4 py-3">{item.label}</span>
       {/if}
     {/each}
   </div>

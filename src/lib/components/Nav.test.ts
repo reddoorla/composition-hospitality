@@ -138,6 +138,54 @@ describe("Nav — mobile menu", () => {
     expect(queryByRole("dialog")).toBeNull();
   });
 
+  it("renders duplicate labels/hrefs without crashing (index-keyed each)", () => {
+    // Two children pointing at the same href, and repeated top-level labels —
+    // both would throw each_key_duplicate at hydration if keyed by label/href.
+    const dupes = [
+      {
+        label: "Company",
+        href: "",
+        children: [
+          { label: "About", href: "/contact" },
+          { label: "Team", href: "/contact" },
+        ],
+      },
+      { label: "Company", href: "/company" },
+    ];
+    expect(() => render(Nav, { items: dupes })).not.toThrow();
+  });
+
+  it("renders an empty-href item as non-interactive text, not a dead link", () => {
+    const { container, getByText } = render(Nav, {
+      items: [{ label: "Heading", href: "" }],
+    });
+    expect(getByText("Heading").tagName).toBe("SPAN");
+    // The only <a> is the logo home link; no <a href=""> leaf.
+    const emptyLinks = Array.from(container.querySelectorAll("a")).filter(
+      (a) => a.getAttribute("href") === "",
+    );
+    expect(emptyLinks).toHaveLength(0);
+  });
+
+  it("desktop dropdown is a disclosure: aria-expanded toggles, Escape closes", async () => {
+    const { container } = render(Nav, { items: itemsWithDropdown });
+    // The desktop dropdown toggle carries aria-controls (the mobile menu isn't
+    // open, so it's the only such button).
+    const toggle = container.querySelector(
+      "button[aria-controls]",
+    ) as HTMLButtonElement;
+    expect(toggle).toBeTruthy();
+    // No misleading aria-haspopup (the popup is a list of links, not a menu).
+    expect(toggle.getAttribute("aria-haspopup")).toBeNull();
+    expect(toggle.getAttribute("aria-expanded")).toBe("false");
+
+    await fireEvent.click(toggle);
+    expect(toggle.getAttribute("aria-expanded")).toBe("true");
+
+    await fireEvent.keyDown(toggle, { key: "Escape" });
+    expect(toggle.getAttribute("aria-expanded")).toBe("false");
+  });
+
   it("expands a dropdown as an accordion and reveals its children", async () => {
     const { getByLabelText, getByRole } = render(Nav, {
       items: itemsWithDropdown,

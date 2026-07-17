@@ -32,7 +32,9 @@
       // member (truthy) and slip past the filter, then crash on `.platform`.
       .map((s) => ({
         ...s,
-        meta: Object.hasOwn(NETWORK, s.network) ? NETWORK[s.network] : undefined,
+        meta: Object.hasOwn(NETWORK, s.network)
+          ? NETWORK[s.network]
+          : undefined,
       }))
       .filter(
         (s): s is typeof s & { meta: { platform: string; label: string } } =>
@@ -47,18 +49,30 @@
   >
     {#if known.length > 0}
       <ul class="flex items-center gap-4">
-        {#each known as social (social.network)}
+        <!-- Keyed by index: a network can repeat across footer blocks, and a
+             duplicate key throws each_key_duplicate at hydration. -->
+        {#each known as social, i (i)}
           <li>
-            <a
-              href={social.href ?? "#"}
-              aria-label={social.meta.label}
-              class="inline-flex min-h-11 min-w-11 items-center justify-center hover:opacity-70"
-              {...social.href
-                ? { target: "_blank", rel: "noopener noreferrer" }
-                : {}}
-            >
-              <BrandIcon platform={social.meta.platform} class="h-5 w-5" />
-            </a>
+            {#if social.href}
+              <a
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={social.meta.label}
+                class="inline-flex min-h-11 min-w-11 items-center justify-center hover:opacity-70"
+              >
+                <BrandIcon platform={social.meta.platform} class="h-5 w-5" />
+              </a>
+            {:else}
+              <!-- No recovered url — render the glyph, but not as a dead link. -->
+              <span
+                class="inline-flex min-h-11 min-w-11 items-center justify-center"
+                aria-label={social.meta.label}
+                role="img"
+              >
+                <BrandIcon platform={social.meta.platform} class="h-5 w-5" />
+              </span>
+            {/if}
           </li>
         {/each}
       </ul>
