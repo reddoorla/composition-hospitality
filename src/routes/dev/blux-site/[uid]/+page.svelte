@@ -6,9 +6,7 @@
   import pages from "$lib/blux/page-slices.json";
 
   const uid = $derived(page.params["uid"] ?? "home");
-  const slices = $derived(
-    (pages as Record<string, unknown[]>)[uid] ?? [],
-  );
+  const slices = $derived((pages as Record<string, unknown[]>)[uid] ?? []);
 </script>
 
 <!-- The converted multi-page site straight from `blux convert` output: each
