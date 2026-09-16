@@ -1,6 +1,9 @@
 <script lang="ts">
+  import { SliceZone } from "@prismicio/svelte";
   import { enhance } from "$app/forms";
+  import { loadPresentation } from "$lib/blux/presentation";
   import Field from "$lib/components/Field.svelte";
+  import { components } from "$lib/slices";
   import TurnstileWidget from "$lib/components/TurnstileWidget.svelte";
   import type { ActionData, PageData } from "./$types";
 
@@ -25,11 +28,24 @@
   Requires FORMS_INGEST_URL + FORMS_INGEST_TOKEN in the deployed site's env (see .env.example).
 -->
 
+<!-- Editable copy from the Prismic "contact" page document, rendered OUTSIDE
+     the form's container: grid_band/split_feature are full-bleed bands and
+     would be wrongly constrained by the max-w-2xl block below. -->
+{#if data.page}
+  <SliceZone
+    slices={data.page.data.slices}
+    {components}
+    context={{ presentation: loadPresentation("contact") }}
+  />
+{/if}
+
 <main class="max-w-2xl mx-auto px-8 py-16 space-y-8">
-  <header class="space-y-2">
-    <h1 class="text-3xl font-bold">Contact us</h1>
-    <p class="text-secondary">Send us a message and we'll get back to you.</p>
-  </header>
+  {#if !data.page}
+    <header class="space-y-2">
+      <h1 class="text-3xl font-bold">Contact us</h1>
+      <p class="text-secondary">Send us a message and we'll get back to you.</p>
+    </header>
+  {/if}
 
   <!-- One-and-done: on success the form unmounts. To allow another submission, keep the form mounted and reset the field state instead. -->
   {#if form?.success}
