@@ -142,9 +142,7 @@
 </script>
 
 <section
-  class="w-screen overflow-clip {backdrop
-    ? 'fixed -z-10 top-0 left-0'
-    : 'relative'}"
+  class="w-screen overflow-clip {backdrop ? 'fixed -z-10 top-0 left-0' : 'relative'}"
   style="height: {percentHeight}lvh"
 >
   <div
@@ -164,10 +162,7 @@
         class="absolute bottom-0 left-0 h-full w-full object-cover {passedClasses} -z-10"
       />
     {:else if field}
-      <PrismicImage
-        {field}
-        class="absolute h-full w-full object-cover -z-10 {passedClasses}"
-      />
+      <PrismicImage {field} class="absolute h-full w-full object-cover -z-10 {passedClasses}" />
     {/if}
 
     {#if vimeoId && videoSrc && !videoError}
@@ -201,10 +196,6 @@
   .bg-darken-gradient {
     background:
       linear-gradient(0deg, rgba(0, 38, 62, 0.5) 0%, rgba(0, 38, 62, 0.5) 100%),
-      linear-gradient(
-        180deg,
-        rgba(0, 38, 62, 0.75) -3.96%,
-        rgba(0, 38, 62, 0) 49.92%
-      );
+      linear-gradient(180deg, rgba(0, 38, 62, 0.75) -3.96%, rgba(0, 38, 62, 0) 49.92%);
   }
 </style>

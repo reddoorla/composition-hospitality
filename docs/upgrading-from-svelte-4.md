@@ -137,12 +137,7 @@ This is the bulk of the work — touch every component once. Bucket the work:
     class?: string;
     children?: Snippet;
   }
-  let {
-    foo = "default",
-    class: klass = "",
-    children,
-    ...rest
-  }: Props = $props();
+  let { foo = "default", class: klass = "", children, ...rest }: Props = $props();
 </script>
 
 <a class="...{klass}">{@render children?.()}</a>
@@ -160,9 +155,7 @@ let viewportWidth: number = $state();
 let main: HTMLElement | null = $state();
 
 // Fixed:
-let viewportWidth: number = $state(
-  typeof window !== "undefined" ? window.innerWidth : 1920,
-);
+let viewportWidth: number = $state(typeof window !== "undefined" ? window.innerWidth : 1920);
 let main: HTMLElement | undefined = $state();
 ```
 

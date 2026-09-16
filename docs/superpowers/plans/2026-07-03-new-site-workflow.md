@@ -25,10 +25,7 @@
 // tests/reports/airtable/ensure-site.test.ts
 import { describe, it, expect } from "vitest";
 import { ensureSite } from "../../../src/reports/airtable/ensure-site.js";
-import {
-  makeFakeBase,
-  type FakeRecord,
-} from "../_helpers/fake-airtable-base.js";
+import { makeFakeBase, type FakeRecord } from "../_helpers/fake-airtable-base.js";
 
 function existingSite(over: Partial<FakeRecord["fields"]> = {}): FakeRecord {
   return {
@@ -51,13 +48,10 @@ describe("ensureSite", () => {
       pointOfContact: "owner@roalson.com",
     });
     expect(result.status).toBe("created");
-    const create = base.__calls.find(
-      (c) => c.kind === "create" && c.table === "Websites",
-    );
+    const create = base.__calls.find((c) => c.kind === "create" && c.table === "Websites");
     expect(create).toBeDefined();
-    const fields = (
-      create as { records: Array<{ fields: Record<string, unknown> }> }
-    ).records[0]!.fields;
+    const fields = (create as { records: Array<{ fields: Record<string, unknown> }> }).records[0]!
+      .fields;
     expect(fields).toMatchObject({
       Name: "roalson",
       Status: "in development",
@@ -76,9 +70,7 @@ describe("ensureSite", () => {
 
   it("fills ONLY blank fields on an existing row — never overwrites operator data", async () => {
     const base = makeFakeBase({
-      Websites: [
-        existingSite({ url: undefined, "point of contact": "kept@client.com" }),
-      ],
+      Websites: [existingSite({ url: undefined, "point of contact": "kept@client.com" })],
     });
     const result = await ensureSite(base, {
       slug: "acme-co",
@@ -89,9 +81,8 @@ describe("ensureSite", () => {
     expect(result.updatedFields).toEqual(["url"]);
     const update = base.__calls.find((c) => c.kind === "update");
     expect(update).toBeDefined();
-    const fields = (
-      update as { records: Array<{ fields: Record<string, unknown> }> }
-    ).records[0]!.fields;
+    const fields = (update as { records: Array<{ fields: Record<string, unknown> }> }).records[0]!
+      .fields;
     expect(fields).toEqual({ url: "https://acme.example.com" });
   });
 
@@ -171,14 +162,9 @@ export async function ensureSite(
   input: EnsureSiteInput,
 ): Promise<EnsureSiteResult> {
   const slug = siteSlug(input.slug);
-  if (!slug)
-    throw new Error(
-      `ensure-site: '${input.slug}' does not slugify to a usable slug`,
-    );
+  if (!slug) throw new Error(`ensure-site: '${input.slug}' does not slugify to a usable slug`);
 
-  const existing = (await listWebsites(base)).find(
-    (w) => siteSlug(w.name) === slug,
-  );
+  const existing = (await listWebsites(base)).find((w) => siteSlug(w.name) === slug);
 
   if (!existing) {
     const fields: Record<string, unknown> = {
@@ -187,8 +173,7 @@ export async function ensureSite(
       [COLS.gitRepo]: input.gitRepo ?? `reddoorla/${slug}`,
     };
     if (input.url) fields[COLS.url] = input.url;
-    if (input.pointOfContact)
-      fields[COLS.pointOfContact] = input.pointOfContact;
+    if (input.pointOfContact) fields[COLS.pointOfContact] = input.pointOfContact;
     const created = (await base(WEBSITES_TABLE).create([{ fields }])) as Array<{
       id: string;
     }>;
@@ -200,8 +185,7 @@ export async function ensureSite(
   if (input.url && blank(existing.url || null)) updates[COLS.url] = input.url;
   if (input.pointOfContact && blank(existing.pointOfContact))
     updates[COLS.pointOfContact] = input.pointOfContact;
-  if (input.gitRepo && blank(existing.gitRepo))
-    updates[COLS.gitRepo] = input.gitRepo;
+  if (input.gitRepo && blank(existing.gitRepo)) updates[COLS.gitRepo] = input.gitRepo;
 
   const updatedFields = Object.keys(updates);
   if (updatedFields.length > 0) {
@@ -360,19 +344,10 @@ export async function runEnsureSiteCommand(
 
 ```ts
 cli
-  .command(
-    "ensure-site <slug>",
-    "Create/verify the Airtable Websites row for a new site.",
-  )
+  .command("ensure-site <slug>", "Create/verify the Airtable Websites row for a new site.")
   .option("--url <url>", "Deployed URL (e.g. the Netlify site URL).")
-  .option(
-    "--contact <email>",
-    "point of contact — the client address reports resolve to.",
-  )
-  .option(
-    "--git-repo <owner/repo>",
-    "GitHub identity. Default on create: reddoorla/<slug>.",
-  )
+  .option("--contact <email>", "point of contact — the client address reports resolve to.")
+  .option("--git-repo <owner/repo>", "GitHub identity. Default on create: reddoorla/<slug>.")
   .action(
     async (
       slug: string,
@@ -385,11 +360,7 @@ cli
       },
     ) =>
       runOrExit(
-        async () =>
-          (await import("./commands/ensure-site.js")).runEnsureSiteCommand(
-            slug,
-            opts,
-          ),
+        async () => (await import("./commands/ensure-site.js")).runEnsureSiteCommand(slug, opts),
         opts,
       ),
   );
