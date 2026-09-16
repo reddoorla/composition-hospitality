@@ -31,6 +31,14 @@ export async function entries() {
 
   const pages = await client.getAllByType("page");
 
-  // "home" is rendered by the root route — exclude so /home isn't duplicated.
-  return pages.filter((page) => page.uid !== "home").map((page) => ({ uid: page.uid }));
+  // A uid owned by a static route must not also be generated here: SvelteKit
+  // fails the build with an entry-generator mismatch when two routes claim one
+  // path. "home" is rendered by the root route. "contact" is rendered by
+  // src/routes/contact, which owns the form `action` this catch-all cannot
+  // carry — a prerendered route cannot have actions.
+  const staticRouteUids = new Set(["home", "contact"]);
+
+  return pages
+    .filter((page) => !staticRouteUids.has(page.uid ?? ""))
+    .map((page) => ({ uid: page.uid }));
 }

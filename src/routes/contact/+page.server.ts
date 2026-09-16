@@ -1,5 +1,7 @@
+import { asText } from "@prismicio/client";
 import { env } from "$env/dynamic/private";
 import { createIngestAction } from "@reddoorla/maintenance/forms";
+import { createClient, isPlaceholderRepo } from "$lib/prismicio";
 import type { Actions, PageServerLoad } from "./$types";
 
 // The root layout sets `prerender = "auto"`; a form `action` cannot run on a
@@ -7,12 +9,33 @@ import type { Actions, PageServerLoad } from "./$types";
 // route is genuinely dynamic.
 export const prerender = false;
 
-// Plant a per-request timestamp for the bot timing screen. `title` flows to
-// the root layout's <Seo> (static routes set head via data, not their own tags).
-export const load: PageServerLoad = () => ({
-  formTs: Date.now(),
-  title: "Contact",
-});
+// The page's COPY is editable in Prismic (the "contact" page document); the
+// form below it is not, because a form `action` cannot run on a prerendered
+// route. So this route owns the form and borrows the copy, and "contact" is
+// excluded from the [uid] catch-all's entries() so the two never generate the
+// same path.
+//
+// A Prismic miss is never fatal here. On an unconfigured clone
+// (`isPlaceholderRepo`) or a missing/unpublished document the form still
+// renders with its built-in heading — a contact form that 404s because a CMS
+// lookup failed is a worse outcome than one without its intro copy.
+//
+// Also plants a per-request timestamp for the bot timing screen. `title` flows
+// to the root layout's <Seo> (static routes set head via data, not their own
+// tags).
+export const load: PageServerLoad = async ({ fetch, cookies }) => {
+  const page = isPlaceholderRepo
+    ? null
+    : await createClient({ fetch, cookies })
+        .getByUID("page", "contact")
+        .catch(() => null);
+
+  return {
+    page,
+    formTs: Date.now(),
+    title: page ? asText(page.data.title) : "Contact",
+  };
+};
 
 export const actions: Actions = {
   default: createIngestAction({
