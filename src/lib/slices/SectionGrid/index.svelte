@@ -1,11 +1,7 @@
 <script lang="ts">
   import RichTextBody from "$lib/components/RichTextBody.svelte";
   import ContentBand from "$lib/components/ContentBand.svelte";
-  import {
-    PrismicImage,
-    PrismicLink,
-    PrismicRichText,
-  } from "@prismicio/svelte";
+  import { PrismicImage, PrismicLink, PrismicRichText } from "@prismicio/svelte";
   import { isFilled, type Content } from "@prismicio/client";
 
   let { slice }: { slice: Content.SectionGridSlice } = $props();
@@ -17,8 +13,7 @@
   };
 
   type Item = Content.SectionGridSliceDefaultItem;
-  const hasText = (i: Item) =>
-    isFilled.richText(i.item_heading) || isFilled.richText(i.item_body);
+  const hasText = (i: Item) => isFilled.richText(i.item_heading) || isFilled.richText(i.item_body);
   const hasMedia = (i: Item) => isFilled.image(i.item_media);
 
   let items = $derived(slice.items as Item[]);
@@ -55,14 +50,8 @@
   {#if mode === "tiles"}
     <div class="grid grid-cols-2 gap-6 md:grid-cols-3">
       {#each items as item (item)}
-        <PrismicLink
-          field={item.item_link}
-          class="flex items-center justify-center bg-surface p-8"
-        >
-          <PrismicImage
-            field={item.item_media}
-            class="max-h-16 w-auto object-contain"
-          />
+        <PrismicLink field={item.item_link} class="flex items-center justify-center bg-surface p-8">
+          <PrismicImage field={item.item_media} class="max-h-16 w-auto object-contain" />
         </PrismicLink>
       {/each}
     </div>
@@ -73,10 +62,7 @@
     >
       {#each items as item (item)}
         <PrismicLink field={item.item_link} class="block">
-          <PrismicImage
-            field={item.item_media}
-            class="mb-4 aspect-[4/3] w-full object-cover"
-          />
+          <PrismicImage field={item.item_media} class="mb-4 aspect-[4/3] w-full object-cover" />
           <PrismicRichText field={item.item_heading} />
           <RichTextBody field={item.item_body} />
         </PrismicLink>
@@ -98,10 +84,7 @@
           <div>
             <PrismicRichText field={item.item_heading} />
             {#if hasMedia(item)}
-              <PrismicImage
-                field={item.item_media}
-                class="mt-2 h-auto w-auto"
-              />
+              <PrismicImage field={item.item_media} class="mt-2 h-auto w-auto" />
             {/if}
             <RichTextBody field={item.item_body} />
           </div>

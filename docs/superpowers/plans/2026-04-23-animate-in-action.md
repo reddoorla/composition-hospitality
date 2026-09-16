@@ -78,8 +78,7 @@ class FakeIntersectionObserver {
 
 function mockMatchMedia(reducedMotion: boolean) {
   window.matchMedia = vi.fn().mockImplementation((query: string) => ({
-    matches:
-      query === "(prefers-reduced-motion: reduce)" ? reducedMotion : false,
+    matches: query === "(prefers-reduced-motion: reduce)" ? reducedMotion : false,
     media: query,
     addEventListener: () => {},
     removeEventListener: () => {},
@@ -106,12 +105,8 @@ describe("animateIn — viewport mode", () => {
 
     expect(el.style.opacity).toBe("0");
     expect(el.style.transform).toBe("translateY(50%)");
-    expect(el.style.transition).toContain(
-      "opacity 2400ms var(--transition-fast-slow)",
-    );
-    expect(el.style.transition).toContain(
-      "transform 2400ms var(--transition-fast-slow)",
-    );
+    expect(el.style.transition).toContain("opacity 2400ms var(--transition-fast-slow)");
+    expect(el.style.transition).toContain("transform 2400ms var(--transition-fast-slow)");
   });
 });
 ```
@@ -148,8 +143,7 @@ function resolveConfig(param: AnimateInParam): ResolvedConfig {
     typeof param === "boolean" ||
     (param !== undefined && typeof param === "object" && "trigger" in param);
 
-  const opts: AnimateInOptions =
-    typeof param === "object" && param !== null ? param : {};
+  const opts: AnimateInOptions = typeof param === "object" && param !== null ? param : {};
   const trigger = typeof param === "boolean" ? param : (opts.trigger ?? false);
 
   return {
@@ -382,8 +376,7 @@ Expected: FAIL — `transitionDelay` is empty string.
 In `src/lib/actions/animateIn.ts`, inside the `if (cfg.mode === "viewport")` block, BEFORE the observer is created, add:
 
 ```ts
-const delay =
-  cfg.delayMax * (node.getBoundingClientRect().left / window.innerWidth);
+const delay = cfg.delayMax * (node.getBoundingClientRect().left / window.innerWidth);
 node.style.transitionDelay = `${delay}ms`;
 ```
 
@@ -482,8 +475,7 @@ export function animateIn(node: HTMLElement, param?: AnimateInParam) {
     }
   } else {
     applyHidden(node, cfg);
-    const delay =
-      cfg.delayMax * (node.getBoundingClientRect().left / window.innerWidth);
+    const delay = cfg.delayMax * (node.getBoundingClientRect().left / window.innerWidth);
     node.style.transitionDelay = `${delay}ms`;
 
     observer = new IntersectionObserver(
@@ -630,12 +622,8 @@ describe("animateIn — options overrides", () => {
 
     animateIn(el, { duration: 1200 });
 
-    expect(el.style.transition).toContain(
-      "opacity 1200ms var(--transition-fast-slow)",
-    );
-    expect(el.style.transition).toContain(
-      "transform 1200ms var(--transition-fast-slow)",
-    );
+    expect(el.style.transition).toContain("opacity 1200ms var(--transition-fast-slow)");
+    expect(el.style.transition).toContain("transform 1200ms var(--transition-fast-slow)");
   });
 
   it("applies a custom translateY on the hidden transform", () => {
@@ -775,8 +763,7 @@ Replace the entire contents of `src/lib/components/ContentWidth.svelte` with:
 
   onMount(() => viewport.subscribe());
 
-  const baseClasses =
-    "max-w-[1220px] xl:max-w-[1440px] xl:mx-auto mx-[4%] w-[92%]";
+  const baseClasses = "max-w-[1220px] xl:max-w-[1440px] xl:mx-auto mx-[4%] w-[92%]";
   const defaultLayouts = "flex flex-col items-center justify-center relative";
 
   const edgeWidthPx = $derived.by(() => {
@@ -798,10 +785,7 @@ Replace the entire contents of `src/lib/components/ContentWidth.svelte` with:
       {@render children?.()}
     </div>
   {:else}
-    <div
-      class="{baseClasses} {passedClasses || defaultLayouts}"
-      style={passedStyle}
-    >
+    <div class="{baseClasses} {passedClasses || defaultLayouts}" style={passedStyle}>
       {@render children?.()}
     </div>
   {/if}
