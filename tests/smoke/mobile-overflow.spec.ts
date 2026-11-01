@@ -1,6 +1,6 @@
 import { test, expect, type Page } from "@playwright/test";
 
-// No page may be wider than a phone or a tablet, and no text a visitor can see
+// No page may be wider than the screen, and no text a visitor can see
 // may run past the right edge. Ported from williamson-construction-co
 // tests/smoke/mobile-overflow.spec.ts (reddoorla/williamson-construction-co#46)
 // by way of beachfront-dentistry (reddoorla/beachfront-dentistry#120), for P1-90
@@ -20,24 +20,43 @@ import { test, expect, type Page } from "@playwright/test";
 // The pages the rebuild serves today. On 2026-11-01 every Prismic page (`/`,
 // `/about`, `/gallery`, `/portfolio`, `/3-column-team`, `/product-catalogs`)
 // answered 404, because no Prismic repository is wired (slicemachine.config.json
-// is still the placeholder). Only `/contact` and the 553 catalogue product pages
-// answer 200, so three products of different shapes stand in for the template.
-// Add each Prismic page here once it publishes. (tests/smoke/routes.ts holds
-// only `/`.)
-const ROUTES = ["/contact", "/products/abbott", "/products/aero-sectional", "/products/alexander"];
+// is still the placeholder). Only `/contact` and `/products/[slug]` answer 200.
+// That route serves two templates: ProductDetail for the 549 products, of which
+// three of different shapes stand in here, and ProductListing for the three
+// category pages, all listed. Add each Prismic page here once it publishes.
+// (tests/smoke/routes.ts holds only `/`.)
+const ROUTES = [
+  "/contact",
+  "/products/abbott",
+  "/products/aero-sectional",
+  "/products/alexander",
+  "/products/upholstered",
+  "/products/case",
+  "/products/exterior",
+];
 const WIDTHS = [320, 390, 768, 820, 1024, 1280];
 
 async function gotoLoaded(page: Page, path: string) {
   // Reduced motion, so scroll reveals do not hold below-the-fold text at
   // opacity 0 at load (the visibility check would skip it, and a cut there
-  // would pass). Set with emulateMedia as well as the config, since
-  // beachfront-dentistry found the `use.reducedMotion` option alone does not
-  // reach matchMedia on this Playwright.
+  // would pass). The shared base config already sets
+  // `contextOptions.reducedMotion`; this call is a redundant safeguard.
   await page.emulateMedia({ reducedMotion: "reduce" });
   const res = await page.goto(path, { waitUntil: "load" });
   // An unpublished page would otherwise measure the error page and pass.
   expect(res?.ok(), `${path} answered ${res?.status()}`).toBe(true);
   await page.evaluate(() => document.fonts.ready);
+  // Measure the hydrated page, which is what a visitor sees. On the dev server,
+  // which is what this repo's config always starts (CI included), `load` comes
+  // before hydration, so a layout chosen at hydration went unmeasured. SvelteKit
+  // sets `history.scrollRestoration` to "manual" in `_start_router()`, which
+  // runs only once `_hydrate()` has returned (kit 2.70.3, client.js `start`);
+  // on a fresh load nothing sets it earlier. Two frames then let the effects
+  // that hydration scheduled render.
+  await page.waitForFunction(() => history.scrollRestoration === "manual");
+  await page.evaluate(
+    () => new Promise((done) => requestAnimationFrame(() => requestAnimationFrame(done))),
+  );
 }
 
 function measure(page: Page) {
