@@ -20,10 +20,13 @@ import { test, expect, type Page } from "@playwright/test";
 // The pages the rebuild serves today. On 2026-11-01 every Prismic page (`/`,
 // `/about`, `/gallery`, `/portfolio`, `/3-column-team`, `/product-catalogs`)
 // answered 404, because no Prismic repository is wired (slicemachine.config.json
-// is still the placeholder). Only `/contact` and `/products/[slug]` answer 200.
-// That route serves two templates: ProductDetail for the 549 products, of which
-// three of different shapes stand in here, and ProductListing for the three
-// category pages, all listed. Add each Prismic page here once it publishes.
+// is still the placeholder). The only visitor pages that answer 200 are
+// `/contact` and `/products/[slug]`. That route serves two templates:
+// ProductDetail for the 549 products, of which three of different shapes stand
+// in here, and ProductListing for the three category pages, all listed. Only
+// Upholstered and Case render a grid: all 15 Exterior products are `disabled`,
+// so `/products/exterior` is a heading alone until one is enabled. Add each
+// Prismic page here once it publishes.
 // (tests/smoke/routes.ts holds only `/`.)
 const ROUTES = [
   "/contact",
@@ -34,7 +37,8 @@ const ROUTES = [
   "/products/case",
   "/products/exterior",
 ];
-const WIDTHS = [320, 390, 768, 820, 1024, 1280];
+// 640 is where the listing grid turns to three columns (`sm:grid-cols-3`).
+const WIDTHS = [320, 390, 640, 768, 820, 1024, 1280];
 
 async function gotoLoaded(page: Page, path: string) {
   // Reduced motion, so scroll reveals do not hold below-the-fold text at
@@ -53,7 +57,15 @@ async function gotoLoaded(page: Page, path: string) {
   // runs only once `_hydrate()` has returned (kit 2.70.3, client.js `start`);
   // on a fresh load nothing sets it earlier. Two frames then let the effects
   // that hydration scheduled render.
-  await page.waitForFunction(() => history.scrollRestoration === "manual");
+  // A page whose hydration throws, or one with `csr = false`, never gets
+  // there: fail with that, not with the bare test timeout.
+  await page
+    .waitForFunction(() => history.scrollRestoration === "manual", undefined, {
+      timeout: 15_000,
+    })
+    .catch(() => {
+      throw new Error(`${path} never hydrated: history.scrollRestoration is not "manual"`);
+    });
   await page.evaluate(
     () => new Promise((done) => requestAnimationFrame(() => requestAnimationFrame(done))),
   );
