@@ -1,0 +1,243 @@
+import { test, expect, type Page } from "@playwright/test";
+
+// No page may be wider than the screen, and no text a visitor can see
+// may run past the right edge. Ported from williamson-construction-co
+// tests/smoke/mobile-overflow.spec.ts (reddoorla/williamson-construction-co#46)
+// by way of beachfront-dentistry (reddoorla/beachfront-dentistry#120), for P1-90
+// (reddoorla/reddoor-maintenance#1876). The rebuild had no overflow on
+// 2026-11-01 (production is still the Blux site, which does), so the spec is
+// here to keep it that way.
+//
+// A plain desktop context at the device width, because Chromium's mobile
+// emulation zooms the page out to fit and hides the overflow. Only text that
+// straddles the edge counts: text wholly past it is a closed menu or a carousel
+// slide parked off-screen, not a cut. Text the browser does not paint (hidden,
+// or opacity 0), text inside an inert subtree (a carousel's peeking slide), and
+// a line the ancestors that clip it leave nothing of (the sr-only pattern, a
+// slider's parked slides) are skipped. A box the visitor can scroll (overflow
+// auto or scroll) hides nothing they can scroll to.
+
+// The pages the rebuild serves today. On 2026-11-01 every Prismic page (`/`,
+// `/about`, `/gallery`, `/portfolio`, `/3-column-team`, `/product-catalogs`)
+// answered 404, because no Prismic repository is wired (slicemachine.config.json
+// is still the placeholder). The only visitor pages that answer 200 are
+// `/contact` and `/products/[slug]`. That route serves two templates:
+// ProductDetail for the 549 products, of which three of different shapes stand
+// in here, and ProductListing for the three category pages, all listed. Only
+// Upholstered and Case render a grid: all 15 Exterior products are `disabled`,
+// so `/products/exterior` is a heading alone until one is enabled. Add each
+// Prismic page here once it publishes.
+// (tests/smoke/routes.ts holds only `/`.)
+const ROUTES = [
+  "/contact",
+  "/products/abbott",
+  "/products/aero-sectional",
+  "/products/alexander",
+  "/products/upholstered",
+  "/products/case",
+  "/products/exterior",
+];
+// 640 is where the listing grid turns to three columns (`sm:grid-cols-3`).
+const WIDTHS = [320, 390, 640, 768, 820, 1024, 1280];
+
+async function gotoLoaded(page: Page, path: string) {
+  // Reduced motion, so scroll reveals do not hold below-the-fold text at
+  // opacity 0 at load (the visibility check would skip it, and a cut there
+  // would pass). The shared base config already sets
+  // `contextOptions.reducedMotion`; this call is a redundant safeguard.
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  const res = await page.goto(path, { waitUntil: "load" });
+  // An unpublished page would otherwise measure the error page and pass.
+  expect(res?.ok(), `${path} answered ${res?.status()}`).toBe(true);
+  await page.evaluate(() => document.fonts.ready);
+  // Measure the hydrated page, which is what a visitor sees. On the dev server,
+  // which is what this repo's config always starts (CI included), `load` comes
+  // before hydration, so a layout chosen at hydration went unmeasured. SvelteKit
+  // sets `history.scrollRestoration` to "manual" in `_start_router()`, which
+  // runs only once `_hydrate()` has returned (kit 2.70.3, client.js `start`);
+  // on a fresh load nothing sets it earlier. Two frames then let the effects
+  // that hydration scheduled render.
+  // A page whose hydration throws, or one with `csr = false`, never gets
+  // there: fail with that, not with the bare test timeout.
+  await page
+    .waitForFunction(() => history.scrollRestoration === "manual", undefined, {
+      timeout: 15_000,
+    })
+    .catch(() => {
+      throw new Error(`${path} never hydrated: history.scrollRestoration is not "manual"`);
+    });
+  await page.evaluate(
+    () => new Promise((done) => requestAnimationFrame(() => requestAnimationFrame(done))),
+  );
+}
+
+function measure(page: Page) {
+  return page.evaluate(() => {
+    const vw = document.documentElement.clientWidth;
+    const cut: string[] = [];
+    // Whether a box forms a containing block for absolute and fixed
+    // descendants other than by `position`: a transform in any of its forms,
+    // filter or backdrop-filter, preserve-3d, paint/layout containment
+    // (content-visibility: auto applies both), or will-change naming one.
+    const formsBlock = (cs: CSSStyleDeclaration) =>
+      cs.transform !== "none" ||
+      cs.translate !== "none" ||
+      cs.rotate !== "none" ||
+      cs.scale !== "none" ||
+      cs.perspective !== "none" ||
+      cs.filter !== "none" ||
+      cs.backdropFilter !== "none" ||
+      cs.transformStyle === "preserve-3d" ||
+      cs.contentVisibility === "auto" ||
+      /paint|layout|strict|content/.test(cs.contain) ||
+      /transform|translate|rotate|scale|perspective|filter/.test(cs.willChange);
+    // The next box up in the flat tree: a slotted node climbs into its slot, and
+    // a shadow tree's top climbs out to its host. (A closed shadow root hides
+    // its slots from page script, so its clips are not seen.)
+    const up = (a: Element): Element | null =>
+      a.assignedSlot ??
+      a.parentElement ??
+      (a.parentNode instanceof ShadowRoot ? a.parentNode.host : null);
+    // clip-path and mask-image clip whatever they paint, out-of-flow boxes
+    // included, so they apply on every ancestor. Both are taken at the border
+    // box: a mask paints nothing outside it, and clip-path is narrowed only for
+    // an inset() with no negative inset (`inset(0 -100vmax)` reaches past the
+    // box); any other shape leaves the line as it is.
+    const clipsToBorderBox = (cs: CSSStyleDeclaration) =>
+      cs.maskImage !== "none" || (/^inset\(/.test(cs.clipPath) && !cs.clipPath.includes("-"));
+    // How far right a line box can be seen, or null when none of it can be seen
+    // on the screen. Each ancestor that clips narrows the line, axis by axis:
+    // overflow hidden and clip and paint containment show only the ancestor's
+    // padding box, which leaves nothing of the sr-only pattern's 1px box or of a
+    // slider's parked slides. auto and scroll let the visitor scroll anything in
+    // the box's scrollable extent into view, so past one of those the line can
+    // sit anywhere in its box. Overflow and containment do not apply to plain
+    // inline boxes. A clipping ancestor only clips boxes whose containing block
+    // it is or contains. display: contents boxes have no rect. The returned edge
+    // is the line's own right edge, so text cut by a full-width clipping section
+    // still fails, except where the line's own block container ends it in an
+    // ellipsis (text-overflow, Tailwind's `truncate`): there the text ends where
+    // the clip does.
+    const seen = (start: Element, line: DOMRect): number | null => {
+      let [x0, x1, y0, y1] = [line.left, line.right, line.top, line.bottom];
+      let end = line.right;
+      // The block container whose inline content the line is: the only box
+      // whose text-overflow draws an ellipsis on it.
+      let blockOf: Element | null = start;
+      while (blockOf && /^(inline|contents)$/.test(getComputedStyle(blockOf).display)) {
+        blockOf = up(blockOf);
+      }
+      // An absolute box skips static ancestors up to its containing block; a
+      // fixed box skips everything up to an ancestor that forms one by
+      // transform, filter or containment (usually none: then nothing clips it).
+      let escaped: "" | "absolute" | "fixed" = "";
+      for (let a: Element | null = start; a && a !== document.body; a = up(a)) {
+        const cs = getComputedStyle(a);
+        if (cs.display === "contents") continue;
+        const b = a.getBoundingClientRect();
+        if (clipsToBorderBox(cs)) {
+          [x0, x1] = [Math.max(x0, b.left), Math.min(x1, b.right)];
+          [y0, y1] = [Math.max(y0, b.top), Math.min(y1, b.bottom)];
+        }
+        const block = formsBlock(cs);
+        const containing =
+          escaped === "fixed"
+            ? block
+            : escaped === "absolute"
+              ? cs.position !== "static" || block
+              : true;
+        if (containing && cs.display !== "inline") {
+          escaped = "";
+          // The padding box, which overflow and paint containment clip to.
+          const pl = b.left + a.clientLeft;
+          const pt = b.top + a.clientTop;
+          const [pr, pb] = [pl + a.clientWidth, pt + a.clientHeight];
+          const scrolls = (o: string) => o === "auto" || o === "scroll";
+          const paint = /paint|strict|content/.test(cs.contain) || cs.contentVisibility === "auto";
+          const xBefore = x1;
+          if (scrolls(cs.overflowX)) {
+            const l = pl - a.scrollLeft;
+            if (Math.min(x1, l + a.scrollWidth) - Math.max(x0, l) <= 1) return null;
+            [x0, x1] = [pl, pr];
+          } else if (cs.overflowX !== "visible" || paint) {
+            [x0, x1] = [Math.max(x0, pl), Math.min(x1, pr)];
+          }
+          if (scrolls(cs.overflowY)) {
+            const t = pt - a.scrollTop;
+            if (Math.min(y1, t + a.scrollHeight) - Math.max(y0, t) <= 1) return null;
+            [y0, y1] = [pt, pb];
+          } else if (cs.overflowY !== "visible" || paint) {
+            [y0, y1] = [Math.max(y0, pt), Math.min(y1, pb)];
+          }
+          if (
+            a === blockOf &&
+            cs.textOverflow !== "clip" &&
+            cs.overflowX !== "visible" &&
+            x1 < xBefore - 1
+          ) {
+            end = Math.min(end, x1);
+          }
+        } else if (containing) {
+          escaped = "";
+        }
+        if (x1 - x0 <= 1 || y1 - y0 <= 1) return null;
+        if (cs.position === "fixed") escaped = "fixed";
+        else if (cs.position === "absolute") escaped = "absolute";
+      }
+      // What the ancestors leave of it must also be on the screen.
+      return x0 < vw - 1 && x1 > 1 ? end : null;
+    };
+    // Every text node, inside open shadow roots too.
+    const texts: Text[] = [];
+    const collect = (root: Node) => {
+      const walker = document.createTreeWalker(
+        root,
+        NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT,
+      );
+      for (let n = walker.nextNode(); n; n = walker.nextNode()) {
+        if (n instanceof Text) texts.push(n);
+        else if (n instanceof Element && n.shadowRoot) collect(n.shadowRoot);
+      }
+    };
+    collect(document.body);
+    for (const n of texts) {
+      if (!n.textContent?.trim()) continue;
+      const el = n.parentElement ?? (n.parentNode instanceof ShadowRoot ? n.parentNode.host : null);
+      if (!el || !el.checkVisibility({ opacityProperty: true, visibilityProperty: true })) continue;
+      // Text the page marks inert is out of use: a carousel's peeking
+      // next slide (a designed peek, not a cut), or a parked panel.
+      if (el.closest("[inert]")) continue;
+      const range = document.createRange();
+      range.selectNodeContents(n);
+      // A slotted text node is laid out inside its slot, so its clips start there.
+      const start = n.assignedSlot ?? el;
+      // A line counts when some of it can be seen on the screen and it
+      // straddles the right edge.
+      const cuts = [...range.getClientRects()].some((r) => {
+        const end = seen(start, r);
+        return end !== null && end > vw + 1 && r.left < vw - 1;
+      });
+      if (cuts) cut.push(`<${el.tagName.toLowerCase()}> "${n.textContent.trim().slice(0, 60)}"`);
+    }
+    return {
+      scrollWidth: document.documentElement.scrollWidth,
+      clientWidth: vw,
+      cut,
+    };
+  });
+}
+
+for (const width of WIDTHS) {
+  test.describe(`at ${width}px`, () => {
+    test.use({ viewport: { width, height: 800 } });
+
+    for (const path of ROUTES) {
+      test(`${path} has no horizontal overflow`, async ({ page }) => {
+        await gotoLoaded(page, path);
+        const { scrollWidth, clientWidth, cut } = await measure(page);
+        expect(scrollWidth, `page is wider than ${clientWidth}px`).toBeLessThanOrEqual(clientWidth);
+        expect(cut, `text cut off at the ${clientWidth}px edge`).toEqual([]);
+      });
+    }
+  });
+}
